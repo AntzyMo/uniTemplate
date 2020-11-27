@@ -1,0 +1,33 @@
+/*-------------------------------------------- 字体 */
+.f26 {
+	font-size: 26rpx;
+}
+
+.f28 {
+	font-size: 28rpx;
+}
+
+.f30 {
+	font-size: 30rpx;
+}
+
+.f32 {
+	font-size: 32rpx;
+}
+
+.f38 {
+	font-size: 38rpx;
+}
+
+.f55 {
+	font-size: 55rpx;
+}
+
+.f80 {
+	font-size: 80rpx;
+}
+
+/* 加粗 */
+.fw{
+	font-weight: bold;
+}

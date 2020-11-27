@@ -1,0 +1,34 @@
+/*-------------------------------------------- 边距 */
+.mb20 {
+	margin-bottom: 20rpx;
+}
+
+.mr20 {
+	margin-right: 20rpx;
+}
+
+.mt20 {
+	margin-top: 20rpx;
+}
+
+.ml20 {
+	margin-left: 20rpx;
+}
+
+
+/* -------------------------------------padding */
+.pb20 {
+	padding-bottom: 20rpx;
+}
+
+.pr20 {
+	padding-right: 20rpx;
+}
+
+.pt20 {
+	padding-top: 20rpx;
+}
+
+.pl20 {
+	padding-left: 20rpx;
+}

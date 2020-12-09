@@ -65,6 +65,27 @@ export function getMonths(date1, date2) {
 	return months
 }
 
+
+/**
+ * 参数转换为字符串
+ * @param  {data.url} 路径
+ * @param  {data.params} 参数
+ */
+export const transParams = data => {
+	let arr = []
+	let str = ''
+	if (data.params) {
+		for (let i in data.params) {
+			arr.push(`${i}=${data.params[i]}`)
+		}
+		str = arr.join('&')
+	}
+	console.log(data)
+	return data.params ? data.url + '?' + str : data.url
+
+}
+
+
 //获取地址栏参数
 export const transUrl = () => {
 		let url = location.href;

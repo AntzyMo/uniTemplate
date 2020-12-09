@@ -9,7 +9,7 @@ import zSearchBar from './components/z-search-bar/z-search-bar.vue'
 import zButton from './components/zButton/zButton.vue' 
 import zCard from './components/zCard/zCard.vue' 
 import zBearchBar from './components/z-search-bar/z-search-bar.vue' 
-import zSwiper from './components/zSwiper/zSwiper.vue' 
+import zSwiper from './components/zSwiper/index.vue' 
 import uniIcon from './components/uni-icons/uni-icons.vue' 
 
 Vue.component('zSearchBar',zSearchBar)

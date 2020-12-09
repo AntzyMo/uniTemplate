@@ -1,6 +1,8 @@
 import wxDecode from "@/utils/WXBizDataCrypt";
 import * as utils from '@/utils'
-import {baserul} from '@/utils/url'
+import {
+	baserul
+} from '@/utils/url'
 export default {
 	methods: {
 
@@ -9,7 +11,7 @@ export default {
 			let routerType = {
 				redirectTo: 'redirectTo', //关闭当前页面，跳转到应用内的某个页面
 				reLaunch: 'reLaunch', //关闭所有页面，打开到应用内的某个页面。
-				switchTab: 'switchTab', //跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
+				switchTab: 'switchTab', //关闭其他所有非 tabBar 页面,跳转到 tabBar 页面
 
 			}
 
@@ -35,19 +37,19 @@ export default {
 			})
 		},
 
-		//获取节点信息
+		//获取节点高度
 		getHeight(el, num) {
 			uni.createSelectorQuery()
 				.in(this)
 				.select(el)
 				.boundingClientRect(data => {
 					console.log(data, 'data.top');
-					this.height = this.getSystemInfo() - data.top - num;
+					return this.getSystemInfo() - data.top - num;
 				})
 				.exec();
 		},
 
-		//获取屏幕宽度
+		//获取屏幕高度
 		getSystemInfo() {
 			let num = null;
 			uni.getSystemInfo({
@@ -93,8 +95,8 @@ export default {
 		// 打开地图-用于导航
 		openLocation(longitude, latitude, name = "快创科技", address = '1111111111111') {
 			uni.openLocation({
-				longitude:longitude*1, // 经度
-				latitude:latitude*1, // 纬度
+				longitude: longitude * 1, // 经度
+				latitude: latitude * 1, // 纬度
 				name,
 				address
 			})
@@ -102,15 +104,15 @@ export default {
 
 		// 打开地图-用于搜索地址，选择位置
 		searchLocation(longitude, latitude) {
-			return new Promise((resolve,reject)=>{
-				
-			uni.chooseLocation({
-				longitude, // 经度
-				latitude, // 纬度
-				success :res=>{
-					resolve(res)
-				}
-			})
+			return new Promise((resolve, reject) => {
+
+				uni.chooseLocation({
+					longitude, // 经度
+					latitude, // 纬度
+					success: res => {
+						resolve(res)
+					}
+				})
 			})
 		},
 
@@ -176,7 +178,7 @@ export default {
 				},
 			})
 		},
-		
+
 		// 图片处理-获取图片信息
 		getImageInfo(src = '') {
 			return new Promise((resolve, reject) => {
@@ -195,7 +197,7 @@ export default {
 
 		},
 
-	
+
 
 		// 微信登录
 		wxLogin() {
@@ -246,6 +248,12 @@ export default {
 				return false
 			}
 		},
+
+		//时间戳转日期格式
+		parseTime(date, format = '{y}-{m}-{d}') {
+			return utils.parseTime(date, format)
+		},
+
 
 		//步数解密
 		wxDecode(data) {

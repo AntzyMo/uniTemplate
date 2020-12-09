@@ -75,5 +75,5 @@ export const transUrl = () => {
 			// console.log(data,'data')
 			paramsObj[data[0]] = data[1];
 		});
-		return paramsObj;
-	},
+		return paramsObj
+	}

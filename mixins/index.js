@@ -78,10 +78,11 @@ export default {
 		},
 
 		//提示框
-		message(title) {
+		message(title,duration=1500) {
 			uni.showToast({
 				title,
-				icon: 'none'
+				icon: 'none',
+				duration
 			})
 		},
 
@@ -93,7 +94,7 @@ export default {
 		},
 
 		// 打开地图-用于导航
-		openLocation(longitude, latitude, name = "快创科技", address = '1111111111111') {
+		openLocation(longitude, latitude, name = "测试位置名", address = '测试地址') {
 			uni.openLocation({
 				longitude: longitude * 1, // 经度
 				latitude: latitude * 1, // 纬度
@@ -111,6 +112,9 @@ export default {
 					latitude, // 纬度
 					success: res => {
 						resolve(res)
+					},
+					fail:err=>{
+						reject(err)
 					}
 				})
 			})
@@ -213,7 +217,7 @@ export default {
 		},
 
 		// 获取位置
-		getLocation(name) {
+		getLocation() {
 			return new Promise((resolve, reject) => {
 				uni.authorize({
 					scope: 'scope.userLocation',
@@ -241,7 +245,6 @@ export default {
 		isNull(name, tipMsg) {
 
 			if (!name) {
-				console.log(23232)
 				this.message(tipMsg)
 				return true
 			} else {
@@ -250,7 +253,7 @@ export default {
 		},
 
 		//时间戳转日期格式
-		parseTime(date, format = '{y}-{m}-{d}') {
+		parseTime(date=new Date(), format = '{y}-{m}-{d}') {
 			return utils.parseTime(date, format)
 		},
 

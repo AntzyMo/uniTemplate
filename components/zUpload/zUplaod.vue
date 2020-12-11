@@ -9,10 +9,15 @@
 </template>
 
 <script>
-	import {upload} from '@/api/index.js'
+	
 	export default{
 		props:{
 			value:{
+				type:String,
+				default:''
+			},
+			
+			url:{
 				type:String,
 				default:''
 			}
@@ -45,7 +50,7 @@
 				this.chooseImage().then(res => {
 					console.log(res,'res222')
 					res.forEach(img => {
-						this.uploadImage('/api/common/upload', img).then(res => {
+						this.uploadImage(this.url, img).then(res => {
 							this.imgList.push(res.fullurl);
 							this.uploadImgList.push(res.url);
 							

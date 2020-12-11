@@ -1,12 +1,12 @@
 <template>
 	<view class="zLsitbox">
-		<image class="img" :style="{width:width+'rpx',height:height+'rpx'}" :src="img" mode=""></image>
+		<image class="img" :style="{width:width+'rpx',height:height+'rpx'}" :src="src" mode=""></image>
 		<view class="rf">
 			<view class="title more-t f30">
 				<slot name="title"></slot>
 			</view>
 			<view class="z_info">
-				<slot name="info"></slot>
+				<slot name="conent"></slot>
 			</view>
 			
 			<view class="footer">
@@ -19,17 +19,17 @@
 <script>
 	export default{
 		props:{
-			img:{
+			src:{
 				type:String,
 				default:''
 			},
 			width:{
-				type:String,
-				default:'294'
+				type:Number,
+				default:294
 			},
 			height:{
-				type:String,
-				default:'221'
+				type:Number,
+				default:221
 			}
 		}
 	}

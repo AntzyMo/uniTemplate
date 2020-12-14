@@ -21,7 +21,10 @@ const baseDefault = {
 function request(Object) {
 
 	return new Promise((resolve, reject) => {
-
+		
+		if(Object.loading){
+			uni.showLoading({mask:true})
+		}
 
 		uni.request({
 			url: Object.publicPath ? Object.url : (baseDefault.url + Object.url),

@@ -4,6 +4,7 @@ import request from '@/utils/request.js'
 export const register = data => request({
 	url: '/api/user/register',
 	method: 'post',
+	loading:false,
 	data
 
 }).then(res => res.data.data)

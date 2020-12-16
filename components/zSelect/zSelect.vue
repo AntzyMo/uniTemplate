@@ -58,10 +58,10 @@ export default {
 
 		props: {
 			type: Object,
-			default: {
+			default: _=>({
 				label: 'label',
 				value: 'value'
-			}
+			})
 		}
 	},
 

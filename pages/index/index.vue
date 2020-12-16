@@ -1,8 +1,8 @@
 <template>
 	<view class="content">
 		<view class="card">
-			<zSelect   v-model="value" :list="list" ></zSelect>
-			<zSelect mode="date" type="month" v-model="dateVAlue" ></zSelect>
+			<zSelect v-model="value" :list="list" ></zSelect>
+			<zSelect mode="date" type="month" v-model="dateValue" ></zSelect>
 		
 			<zButton @click="value='3'">按钮</zButton>
 		</view>
@@ -16,7 +16,7 @@ export default {
 		return {
 			
 			value:'1',
-			dateVAlue:'2020-11-01',
+			dateValue:'2020-11-01',
 			title: 'Hello',
 			activeType: '3',
 			list: [

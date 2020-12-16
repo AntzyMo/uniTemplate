@@ -12,7 +12,7 @@ import zBearchBar from './components/z-search-bar/z-search-bar.vue'
 import zSwiper from './components/zSwiper/index.vue' 
 import uniIcon from './components/uni-icons/uni-icons.vue' 
 import zNav from './components/zNav/index.vue'
-
+import zSelect from './components/zSelect/zSelect.vue'
 Vue.component('zSearchBar',zSearchBar)
 Vue.component('zButton',zButton)
 Vue.component('zCard',zCard)
@@ -20,6 +20,7 @@ Vue.component('zBearchBar',zBearchBar)
 Vue.component('zSwiper',zSwiper)
 Vue.component('uniIcon',uniIcon)
 Vue.component('zNav',zNav)
+Vue.component('zSelect',zSelect)
 
 
 

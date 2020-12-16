@@ -1,47 +1,47 @@
 <template>
 	<view class="content">
-		<view class="card"  >
-		<!-- <zCard src="/static/logo.png">
-			<view slot="title">测试标题</view>
-			<view slot="conent">main</view>
-			<view slot="footer">底部</view>
-		</zCard> -->
+		<view class="card">
+			<zSelect   v-model="value" :list="list" ></zSelect>
+			<zSelect mode="date" type="month" v-model="dateVAlue" ></zSelect>
 		
-		<!-- <zNav v-model="activeType" :list='list' @change="change"></zNav>
-		<zButton @click="btnClick">按钮</zButton> -->
+			<zButton @click="value='3'">按钮</zButton>
 		</view>
 	</view>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				title: 'Hello',
-				activeType:'3',
-				list:[{name:'测试',type:'0'},{name:'测试1',type:'1'},{name:'测试2',type:'2'},{name:'测试3',type:'3'},{name:'测试4',type:'4'}]
-			}
-		},
-		onLoad() {
+	
+export default {
+	data() {
+		return {
 			
+			value:'1',
+			dateVAlue:'2020-11-01',
+			title: 'Hello',
+			activeType: '3',
+			list: [
+				{ label: '测试', value: '0' },
+				{ label: '测试1', value: '1' },
+				{ label: '测试2', value: '2' },
+				{ label: '测试3', value: '3' },
+				{ label: '测试4', value: '4' },]
+		};
+	},
+	onLoad() {},
+
+	methods: {
+		bindPickerChange(data) {
+			console.log(data, '22');
 		},
-		
-		
-		methods: {
-			change(data){
-				console.log(data,'22')
-			},
-			
-			btnClick(){
-				
-			}
-		}
+
+		btnClick() {}
 	}
+};
 </script>
 
 <style>
-	.content{
-		padding: 0 20rpx;
-		/* background: #ccc; */
-	}
+.content {
+	padding: 0 20rpx;
+	/* background: #ccc; */
+}
 </style>

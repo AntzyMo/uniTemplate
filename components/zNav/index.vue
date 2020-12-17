@@ -2,9 +2,9 @@
 	<scroll-view class="scroll-viewz" scroll-x="true">
 		<view class="scrollbox">
 			<view class="view1" @click="clickTitle(item, index)" v-for="(item, index) in list" :key="index" :style="[{ marginRight: mr + 'rpx' }]">
-				<view class="title" :style="[{ color: activeIndex == item.type ? activeColor : color }]">{{ item.name }}</view>
+				<view class="title" :style="[{ color: activeIndex == item[props.value]? activeColor : color }]">{{ item[props.label] }}</view>
 
-				<view v-if="activeIndex == item.type" class="line"></view>
+				<view v-if="activeIndex == item[props.value]" class="line"></view>
 			</view>
 		</view>
 	</scroll-view>
@@ -13,10 +13,7 @@
 <script>
 export default {
 	props: {
-		value: {
-			type: [String, Boolean],
-			default: ''
-		},
+		value:[Number,String],
 		list: {
 			type: Array,
 			default: _ => []
@@ -39,6 +36,14 @@ export default {
 		mr: {
 			type: [String, Boolean],
 			default: '16'
+		},
+		
+		props:{
+			type:Object,
+			default:_=>({
+				label:'label',
+				value:'value'
+			})
 		}
 	},
 
@@ -52,7 +57,7 @@ export default {
 			this.activeIndex = val;
 			
 			for (let item of this.list) {
-				if (item.type == val) {
+				if (item[this.props.value] == val) {
 					this.$emit('change', item);
 					return;
 				}
@@ -65,8 +70,8 @@ export default {
 	methods: {
 		//点击nav
 		clickTitle(item, index) {
-			this.activeIndex = item.type;
-			this.$emit('input',item.type)
+			this.activeIndex = item[this.props.value];
+			this.$emit('input',item[this.props.value])
 		}
 	}
 };

@@ -3,7 +3,7 @@
 		<!-- 普通选择器 -->
 		<view v-if="mode === 'selector'">
 			<picker :value="index" :range="list" :disabled="disabled" :range-key="props.label" :props="props" @change="change" @cancel="cancel">
-				<view class="select_box" @click="open = true">
+				<view class="select_box" @click="handlerOpen">
 					<view class="label f30">{{ label }}</view>
 					<uniIcon class="icon" :class="{ active: open }" type="arrowdown" size="24"></uniIcon>
 				</view>
@@ -13,7 +13,7 @@
 		<!-- 日期选择器 -->
 		<view v-if="mode === 'date'">
 			<picker mode="date" :value="dateValue" :fields="type" :disabled="disabled" @change="change" @cancel="cancel">
-				<view class="select_box" @click="open = true">
+				<view class="select_box" @click="handlerOpen">
 					<view class="label f30">{{ date }}</view>
 					<uniIcon class="icon" :class="{ active: open }" type="arrowdown" size="24"></uniIcon>
 				</view>
@@ -100,6 +100,13 @@ export default {
 		};
 	},
 	methods: {
+		// 处理禁用
+		handlerOpen(){
+			if(!this.disabled){
+			this.open = true
+			}
+		},
+		
 		change(e) {
 			this.open = false;
 			this.$emit('input', e.detail.value);

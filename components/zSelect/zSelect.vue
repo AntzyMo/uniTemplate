@@ -5,7 +5,8 @@
 			<picker :value="index" :range="list" :disabled="disabled" :range-key="props.label" :props="props" @change="change" @cancel="cancel">
 				<view class="select_box" @click="handlerOpen">
 					<view class="label f30">{{ label }}</view>
-					<uniIcon class="icon" :class="{ active: open }" type="arrowdown" size="24"></uniIcon>
+					<uniIcon class="icon" :class="{ active: open }" type="arrowdown" size="24" ></uniIcon>
+				
 				</view>
 			</picker>
 		</view>
@@ -118,6 +119,8 @@ export default {
 					}
 				}
 			}
+		
+		
 		},
 
 		// 取消选择或点遮罩层收起 picker 时触发

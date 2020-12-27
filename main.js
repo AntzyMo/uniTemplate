@@ -22,7 +22,9 @@ Vue.component('uniIcon',uniIcon)
 Vue.component('zNav',zNav)
 Vue.component('zSelect',zSelect)
 
-
+import * as url from './utils/url.js'
+Vue.prototype.$url=url.baserul
+Vue.prototype.$imgurl=url.imgurl
 
 Vue.config.productionTip = false
 

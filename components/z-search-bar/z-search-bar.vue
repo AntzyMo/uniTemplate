@@ -72,7 +72,7 @@
 			},
 			bgColor: {
 				type: String,
-				default: "#F8F8F8"
+				default: "#fff"
 			},
 			maxlength: {
 				type: [Number, String],

@@ -5,8 +5,8 @@
 			<picker :value="index" :range="list" :disabled="disabled" :range-key="props.label" :props="props" @change="change" @cancel="cancel">
 				<view class="select_box" @click="handlerOpen">
 					<view class="label f30">{{ label }}</view>
-					<uniIcon class="icon" :class="{ active: open }" type="arrowdown" size="24" ></uniIcon>
-				
+					<uniIcon class="icon" v-if="arrowType=='down'" :class="{ active: open }" type="arrowdown" size="20" ></uniIcon>
+					<uniIcon class="icon" v-if="arrowType=='right'"  type="arrowright" size="20" ></uniIcon>
 				</view>
 			</picker>
 		</view>
@@ -16,7 +16,8 @@
 			<picker mode="date" :value="dateValue" :fields="type" :disabled="disabled" @change="change" @cancel="cancel">
 				<view class="select_box" @click="handlerOpen">
 					<view class="label f30">{{ date }}</view>
-					<uniIcon class="icon" :class="{ active: open }" type="arrowdown" size="24"></uniIcon>
+					<uniIcon class="icon" v-if="arrowType=='down'" :class="{ active: open }" type="arrowdown" size="20"></uniIcon>
+				<uniIcon class="icon" v-if="arrowType=='right'" type="arrowright" size="20" ></uniIcon>
 				</view>
 			</picker>
 		</view>
@@ -55,6 +56,11 @@ export default {
 		type: {
 			type: String,
 			default: 'day' // year、month、day
+		},
+		
+		arrowType:{
+			type:String,
+			default:'down'
 		},
 
 		props: {

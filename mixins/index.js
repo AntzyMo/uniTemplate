@@ -144,7 +144,7 @@ export default {
 			});
 			return new Promise((resolve, reject) => {
 				uni.uploadFile({
-					url: baserul + api,
+					url: api,
 					filePath: url,
 					name: 'file',
 					success: res => {
@@ -209,7 +209,7 @@ export default {
 				uni.login({
 					provider: 'weixin',
 					success: data => {
-						resolve(data)
+						resolve(data.code)
 					}
 				});
 			})

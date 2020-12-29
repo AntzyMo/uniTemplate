@@ -129,9 +129,7 @@
 				// #ifdef APP-PLUS
 				plus.key.hideSoftKeybord()
 				// #endif
-				this.$emit("confirm", {
-					value: this.searchVal
-				})
+				this.$emit("confirm", this.searchVal)
 			}
 		}
 	};

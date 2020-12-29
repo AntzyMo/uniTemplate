@@ -36,9 +36,18 @@ export default {
 	},
 	data() {
 		return {
-			imgList: [],
 			uploadImgList: []
 		};
+	},
+	
+	computed: {
+		imgList() {
+			if (this.value == null || this.value == '' || this.value == undefined) {
+				return [];
+			} else {
+				return this.value.split(',').map(item => this.$imgurl + item);
+			}
+		}
 	},
 	methods: {
 		//删除图片
@@ -60,14 +69,11 @@ export default {
 		//上传图片
 		onChooseImg() {
 			this.chooseImage().then(res => {
-				console.log(res, 'res222');
 				res.forEach(img => {
 					this.uploadImage(this.url, img).then(res => {
 						this.imgList.push(res.fullurl);
 						this.uploadImgList.push(res.url);
-
 						this.$emit('input', this.uploadImgList.join(','));
-						// this.uploadImgList.push(res.url);
 					});
 				});
 			});

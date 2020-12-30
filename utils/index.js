@@ -1,4 +1,5 @@
 import bmap from './bmap-wx.min.js';
+import QQMapWX  from './qqmap-wx-jssdk.min.js';
 
 /**
  * 转换日期
@@ -105,7 +106,9 @@ export const transUrl = () => {
 //百度地图
 export class BMapwx {
 	constructor(ak) {
-		this.BMap = new bmap.BMapWX({ ak });
+		this.BMap = new bmap.BMapWX({
+			ak
+		});
 	}
 
 	// 地址解析
@@ -141,6 +144,64 @@ export class BMapwx {
 				},
 				success: data => {
 					resolve(data.wxMarkerData[0])
+
+
+				},
+
+			});
+		})
+
+
+	}
+
+
+
+
+
+}
+
+
+//腾讯地图
+export class MapWx {
+	constructor(key) {
+		this.qqmapsdk = new QQMapWX({
+			key
+		});
+
+	}
+
+	// 地址解析
+	geocoder(address) {
+		return new Promise((resolve, reject) => {
+			this.qqmapsdk.geocoder({
+				address,
+				fail: fail => {
+					reject(fail)
+				},
+				success: res => {
+					resolve(res)
+				}
+			});
+
+		})
+
+	}
+
+	/** 
+	 * 逆地址解析
+	 *  @param {String} location  'latitude,longitude'
+	 */
+
+	reverseGeocoder(location) {
+		return new Promise((resolve, reject) => {
+			this.qqmapsdk.reverseGeocoder({
+				location,
+				fail: fail => {
+					reject(fail)
+
+				},
+				success: data => {
+					resolve(data)
 
 
 				},

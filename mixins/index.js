@@ -94,7 +94,15 @@ export default {
 					content:object.content,
 					showCancel:object.showCancel,
 					success: success => {
-						resolve(success)
+						if(success.confirm){
+							// 确定
+							resolve()
+						}
+						
+						if(success.cancel){
+							// 取消
+							reject()
+						}
 					},
 					fail: fail => {
 						reject(fail)
@@ -104,7 +112,7 @@ export default {
 		
 		},
 		
-		// 地址解析
+		// 百度地图-地址解析
 		geocoding(ak, address) {
 			return new Promise((resolve, reject) => {
 				new utils.BMapwx(ak).geocoding(address).then(res => {
@@ -115,7 +123,7 @@ export default {
 			})
 		},
 		
-		// 逆地址解析
+		// 百度地图-逆地址解析
 		regeocoding(ak, location) {
 			return new Promise((resolve, reject) => {
 				new utils.BMapwx(ak).regeocoding(location).then(res => {
@@ -125,6 +133,28 @@ export default {
 				})
 			})
 		},
+		
+		// 腾讯地图-地址解析
+		geocoder(key,address){
+			return new Promise((resolve, reject) => {
+				new utils.MapWx(key).geocoder(address).then(res => {
+					resolve(res)
+				}).catch(err => {
+					reject(err)
+				})
+			})
+			},
+			
+			// 腾讯地图-逆地址解析
+			reverseGeocoder(key, location) {
+				return new Promise((resolve, reject) => {
+					new utils.MapWx(key).reverseGeocoder(location).then(res => {
+						resolve(res)
+					}).catch(err => {
+						reject(err)
+					})
+				})
+			},
 		
 		//打电话
 		callPhone(phoneNumber) {

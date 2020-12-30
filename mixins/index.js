@@ -85,7 +85,47 @@ export default {
 				duration
 			})
 		},
-
+		
+		//模态框
+		showModal(object={title:'',content:'',showCancel:true}) {
+			return new Promise((resolve, reject) => {
+				uni.showModal({
+					title:object.title,
+					content:object.content,
+					showCancel:object.showCancel,
+					success: success => {
+						resolve(success)
+					},
+					fail: fail => {
+						reject(fail)
+					}
+				})
+			})
+		
+		},
+		
+		// 地址解析
+		geocoding(ak, address) {
+			return new Promise((resolve, reject) => {
+				new utils.BMapwx(ak).geocoding(address).then(res => {
+					resolve(res)
+				}).catch(err => {
+					reject(err)
+				})
+			})
+		},
+		
+		// 逆地址解析
+		regeocoding(ak, location) {
+			return new Promise((resolve, reject) => {
+				new utils.BMapwx(ak).regeocoding(location).then(res => {
+					resolve(res)
+				}).catch(err => {
+					reject(err)
+				})
+			})
+		},
+		
 		//打电话
 		callPhone(phoneNumber) {
 			uni.makePhoneCall({

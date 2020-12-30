@@ -1,3 +1,5 @@
+import bmap from './bmap-wx.min.js';
+
 /**
  * 转换日期
  * @param {(Object|string|number)} time
@@ -88,13 +90,69 @@ export const transParams = data => {
 
 //获取地址栏参数
 export const transUrl = () => {
-		let url = location.href;
-		let params = url.slice(url.indexOf("?") + 1).split("&");
-		let paramsObj = {};
-		params.forEach((item) => {
-			let data = item.split("=");
-			// console.log(data,'data')
-			paramsObj[data[0]] = data[1];
-		});
-		return paramsObj
+	let url = location.href;
+	let params = url.slice(url.indexOf("?") + 1).split("&");
+	let paramsObj = {};
+	params.forEach((item) => {
+		let data = item.split("=");
+		// console.log(data,'data')
+		paramsObj[data[0]] = data[1];
+	});
+	return paramsObj
+}
+
+
+//百度地图
+export class BMapwx {
+	constructor(ak) {
+		this.BMap = new bmap.BMapWX({ ak });
 	}
+
+	// 地址解析
+	geocoding(address) {
+		return new Promise((resolve, reject) => {
+			this.BMap.geocoding({
+				address,
+				fail: fail => {
+					reject(fail)
+				},
+				success: data => {
+					console.log(data)
+					resolve(data.wxMarkerData)
+				}
+			});
+
+		})
+
+	}
+
+	/** 
+	 * 逆地址解析
+	 *  @param {String} location  'latitude,longitude'
+	 */
+
+	regeocoding(location) {
+		return new Promise((resolve, reject) => {
+			this.BMap.regeocoding({
+				location,
+				fail: fail => {
+					reject(fail)
+
+				},
+				success: data => {
+					resolve(data.wxMarkerData[0])
+
+
+				},
+
+			});
+		})
+
+
+	}
+
+
+
+
+
+}

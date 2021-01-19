@@ -6,6 +6,11 @@
 		
 			<zNav v-model="navVAlue" :props="prpos" :list="clist"></zNav>
 			<zButton @click="value='3'">按钮</zButton>
+			
+			<z-form-item prop="input" required>
+				<input v-model.trim="form.input" />
+			</z-form-item>
+			
 		</view>
 	</view>
 </template>
@@ -15,6 +20,9 @@
 export default {
 	data() {
 		return {
+			form:{
+				input:'11'
+			},
 			prpos:{
 				label:'name',
 				value:'type'

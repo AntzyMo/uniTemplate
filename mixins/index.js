@@ -87,7 +87,7 @@ export default {
 		},
 		
 		//模态框
-		showModal(object={title:'',content:'',showCancel:true}) {
+		messageBox(object={title:'',content:'',showCancel:true}) {
 			return new Promise((resolve, reject) => {
 				uni.showModal({
 					title:object.title,

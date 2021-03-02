@@ -1,6 +1,6 @@
 <template>
 	<view class="zLsitbox">
-		<image class="img" :style="{width:width+'rpx',height:height+'rpx'}" :src="src" mode=""></image>
+		<image class="img" :style="{width:imgwidth+'rpx',height:imgheight+'rpx'}" :src="src" mode=""></image>
 		<view class="rf">
 			<view class="title more-t f30">
 				<slot name="title"></slot>
@@ -23,11 +23,11 @@
 				type:String,
 				default:''
 			},
-			width:{
+			imgwidth:{
 				type:Number,
 				default:294
 			},
-			height:{
+			imgheight:{
 				type:Number,
 				default:221
 			}

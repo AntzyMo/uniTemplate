@@ -22,7 +22,6 @@
 				type: String,
 				default: '#333333'
 			},
-			
 			size: {
 				type: [Number, String],
 				default: 16

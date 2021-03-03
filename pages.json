@@ -6,6 +6,13 @@
 				"navigationBarTitleText": "ZNO"
 				// "navigationStyle":"custom"
 			}
+		},
+		{
+			"path": "pages/demo/index",
+			"style": {
+				"navigationBarTitleText": "ZNO"
+				// "navigationStyle":"custom"
+			}
 		}
 	],
 	"globalStyle": {

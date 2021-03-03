@@ -321,6 +321,30 @@ export default {
 				return false
 			}
 		},
+		
+		/**
+		 * 表单验证是否为空，只支持字符串
+		 * @param {Object} fields 需要验证的对象
+		 * @param {Object} rule 验证对象错误提示
+		  * @param {Function} callback 成功回调
+		 * */
+		validate(fields, rule, callback) {
+			let isTrue = false;
+			for (let i in rule) {
+				if (fields[i] != '') {
+					isTrue = true;
+				} else {
+					this.message(rule[i]);
+					isTrue = false;
+					return;
+				}
+			}
+		
+			if (isTrue) {
+				callback();
+			}
+		},
+		
 
 		//时间戳转日期格式
 		parseTime(date=new Date(), format = '{y}-{m}-{d}') {

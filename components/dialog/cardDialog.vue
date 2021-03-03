@@ -1,5 +1,5 @@
 <template>
-	<view class="cardDialog" v-if="isSelect">
+	<view class="cardDialog" v-if="visible">
 		<view class="selectBox" :style="{ height: height, 'margin-top': margintop }">
 			<view class="copent"><slot></slot></view>
 		</view>
@@ -13,6 +13,10 @@ import uniIcon from '@/components/uni-icons/uni-icons.vue';
 export default {
 	components: { uniIcon },
 	props: {
+		visible:{
+			type:Boolean,
+			default:false
+		},
 		height: {
 			type: String,
 			default: '0'
@@ -25,8 +29,12 @@ export default {
 	},
 	data() {
 		return {
-			isSelect: false
+	
 		};
+	},
+	
+	watch:{
+		
 	},
 
 	computed: {
@@ -49,7 +57,7 @@ export default {
 		//关闭弹窗
 		closeDialog() {
 			this.isSelect = false;
-			this.$emit('close', true);
+			this.$emit('update:visible', false);
 		}
 	}
 };

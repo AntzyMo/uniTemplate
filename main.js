@@ -13,8 +13,7 @@ import zSwiper from './components/zSwiper/index.vue'
 import uniIcon from './components/uni-icons/uni-icons.vue' 
 import zNav from './components/zNav/index.vue'
 import zSelect from './components/zSelect/zSelect.vue'
-import zForm from './components/zForm/index.vue'
-import zFormItem from './components/zFormItem/index.vue'
+
 Vue.component('zSearchBar',zSearchBar)
 Vue.component('zButton',zButton)
 Vue.component('zCard',zCard)
@@ -23,8 +22,7 @@ Vue.component('zSwiper',zSwiper)
 Vue.component('uniIcon',uniIcon)
 Vue.component('zNav',zNav)
 Vue.component('zSelect',zSelect)
-Vue.component('zForm',zForm)
-Vue.component('zFormItem',zFormItem)
+
 
 import * as url from './utils/url.js'
 Vue.prototype.$url=url.baserul

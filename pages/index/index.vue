@@ -1,22 +1,29 @@
 <template>
 	<view class="content">
 		<view class="card">
-			<zSelect v-model="value" :list="list"></zSelect>
-			<zSelect mode="date" type="month" v-model="dateValue"></zSelect>
+			<SelectCom v-model="value" :list="list"></SelectCom>
+			<SelectCom mode="date" type="month" v-model="dateValue"></SelectCom>
 
-			<zNav v-model="navVAlue" :props="prpos" :list="clist"></zNav>
-			<zButton @click="btnClick">按钮</zButton>
+			<TabCom v-model="navVAlue" :props="prpos" :list="clist"></TabCom>
+			<BtnCom @click="btnClick">按钮</BtnCom>
+			<view>
 			<codeCom></codeCom>
+			</view>
+			<view style="width: 100%; height: 300rpx;">
+			
+			</view>
 		</view>
 	</view>
 </template>
 
 <script>
 	import codeCom from '../../components/CodeCom/index.vue'
+	import SwiperCom from '@/components/SwiperCom'
 export default {
-	components:{codeCom},
+	components:{codeCom,SwiperCom},
 	data() {
 		return {
+			
 			form: {
 				input: '11'
 			},

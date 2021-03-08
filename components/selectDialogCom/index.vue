@@ -101,6 +101,7 @@ export default {
 		//关闭弹窗
 		closeDialog() {
 			this.$emit('update:visible', false);
+			this.$emit('close')
 		}
 	}
 };

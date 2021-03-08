@@ -1,6 +1,7 @@
 <template>
 	<swiper class="swiper" :indicator-dots="true" :current="0">
 		<swiper-item v-for="(item, index) in value" :key="index">
+			
 			<image :src="item" mode=""></image>
 			</swiper-item>
 	</swiper>
@@ -9,7 +10,6 @@
 <script>
 export default {
 	props: {
-		
 		value: {
 			type: Array,
 			default: _ => []

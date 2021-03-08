@@ -5,23 +5,18 @@ import commMethond from './mixins/index.js'
 Vue.mixin(commMethond)
 
 // 组件
-import zSearchBar from './components/z-search-bar/z-search-bar.vue'
-import zButton from './components/zButton/zButton.vue' 
-import zCard from './components/zCard/zCard.vue' 
-import zBearchBar from './components/z-search-bar/z-search-bar.vue' 
-import zSwiper from './components/zSwiper/index.vue' 
+import BtnCom from './components/BtnCom/index.vue' 
+import CardCom from './components/CardCom/index.vue' 
 import uniIcon from './components/uni-icons/uni-icons.vue' 
-import zNav from './components/zNav/index.vue'
-import zSelect from './components/zSelect/zSelect.vue'
+import TabCom from './components/TabCom/index.vue'
+import SelectCom from './components/SelectCom/index.vue'
 
-Vue.component('zSearchBar',zSearchBar)
-Vue.component('zButton',zButton)
-Vue.component('zCard',zCard)
-Vue.component('zBearchBar',zBearchBar)
-Vue.component('zSwiper',zSwiper)
+
+Vue.component('BtnCom',BtnCom)
+Vue.component('CardCom',CardCom)
 Vue.component('uniIcon',uniIcon)
-Vue.component('zNav',zNav)
-Vue.component('zSelect',zSelect)
+Vue.component('TabCom',TabCom)
+Vue.component('SelectCom',SelectCom)
 
 
 import * as url from './utils/url.js'

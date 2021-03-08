@@ -6,8 +6,6 @@
 
 			<zNav v-model="navVAlue" :props="prpos" :list="clist"></zNav>
 			<zButton @click="btnClick">按钮</zButton>
-
-			<input v-model="ruleForm.name" />
 		</view>
 	</view>
 </template>
@@ -16,18 +14,6 @@
 export default {
 	data() {
 		return {
-			ruleForm: {
-				name: '1',
-				name1: '1',
-				name2: '1'
-			},
-			formRule: {
-				name: '不能不为空',
-				name1: '不能不为空1',
-				name2: '不能不为空2'
-			},
-
-			dialog: true,
 			form: {
 				input: '11'
 			},
@@ -44,9 +30,7 @@ export default {
 			list: [{ label: '测试', value: '0' }, { label: '测试1', value: '1' }, { label: '测试2', value: '2' }, { label: '测试3', value: '3' }, { label: '测试4', value: '4' }]
 		};
 	},
-	onLoad() {
-		console.log(this.wxLogin())
-	},
+	onLoad() {},
 
 	methods: {
 		bindPickerChange(data) {
@@ -55,13 +39,7 @@ export default {
 
 		btnClick() {
 			// this.toRouter({url:'/pages/demo/index',params:{}})
-			let obj = Object.assign({}, this.ruleForm);
-			this.validate(obj, this.formRule, _ => {
-				console.log('没有空');
-			});
-		},
-
-		
+		}
 	}
 };
 </script>

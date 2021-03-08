@@ -1,5 +1,6 @@
 import wxDecode from "@/utils/WXBizDataCrypt";
 import * as utils from '@/utils'
+
 import {
 	baserul
 } from '@/utils/url'
@@ -239,6 +240,8 @@ export default {
 				reject(e)
 			})
 		},
+
+		
 
 		// 图片处理-预览图片
 		previewImage(urls = [], current = 0) {

@@ -6,12 +6,15 @@
 
 			<zNav v-model="navVAlue" :props="prpos" :list="clist"></zNav>
 			<zButton @click="btnClick">按钮</zButton>
+			<codeCom></codeCom>
 		</view>
 	</view>
 </template>
 
 <script>
+	import codeCom from '../../components/CodeCom/index.vue'
 export default {
+	components:{codeCom},
 	data() {
 		return {
 			form: {

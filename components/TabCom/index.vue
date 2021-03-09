@@ -77,7 +77,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .scroll-viewz {
 	padding: 20rpx 0;
 	.scrollbox {

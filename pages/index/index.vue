@@ -6,24 +6,27 @@
 
 			<TabCom v-model="navVAlue" :props="prpos" :list="clist"></TabCom>
 			<BtnCom @click="btnClick">按钮</BtnCom>
-			<view>
+			<view class="mb20">
 			<codeCom></codeCom>
 			</view>
-			<view style="width: 100%; height: 300rpx;">
-			
-			</view>
+			<view class="c1890ff" @click="visible=true">打开CardDialogCom</view>
+			<CardDialogCom :title="CardDialogCom" :visible.sync="visible">
+				<view >内容</view>
+				<view slot="footer">底部</view>
+			</CardDialogCom>
 		</view>
 	</view>
 </template>
 
 <script>
 	import codeCom from '../../components/CodeCom/index.vue'
+	import CardDialogCom from '../../components/CardDialogCom/index.vue'
 	import SwiperCom from '@/components/SwiperCom'
 export default {
-	components:{codeCom,SwiperCom},
+	components:{codeCom,SwiperCom,CardDialogCom},
 	data() {
 		return {
-			
+			visible:false,
 			form: {
 				input: '11'
 			},
@@ -54,9 +57,14 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .content {
 	padding: 0 20rpx;
 	/* background: #ccc; */
 }
+
+.c1890ff{
+	color: #1890ff;
+}
+
 </style>

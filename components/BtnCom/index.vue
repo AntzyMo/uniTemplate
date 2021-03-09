@@ -70,7 +70,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .commitBtn button {
 	&::after {
 		border: 2rpx solid transparent;

@@ -35,7 +35,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.zLsitbox{
 		display: flex;
 		.img{

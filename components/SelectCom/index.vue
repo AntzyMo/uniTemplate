@@ -138,7 +138,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .zSelect {
 	.select_box {
 		display: flex;

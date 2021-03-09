@@ -9,21 +9,21 @@
 			<view class="mb20">
 			<codeCom></codeCom>
 			</view>
-			<view class="c1890ff" @click="visible=true">打开CardDialogCom</view>
-			<CardDialogCom :title="CardDialogCom" :visible.sync="visible">
+			<view class="c1890ff" @click="visible=true">打开DialogCom</view>
+			<DialogCom :title="DialogCom" :visible.sync="visible">
 				<view >内容</view>
 				<view slot="footer">底部</view>
-			</CardDialogCom>
+			</DialogCom>
 		</view>
 	</view>
 </template>
 
 <script>
 	import codeCom from '../../components/CodeCom/index.vue'
-	import CardDialogCom from '../../components/CardDialogCom/index.vue'
+	import DialogCom from '../../components/DialogCom/index.vue'
 	import SwiperCom from '@/components/SwiperCom'
 export default {
-	components:{codeCom,SwiperCom,CardDialogCom},
+	components:{codeCom,SwiperCom,DialogCom},
 	data() {
 		return {
 			visible:false,

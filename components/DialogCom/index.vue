@@ -2,7 +2,9 @@
 	<view class="cardDialog" v-if="visible" @touchmove.stop.prevent>
 		<view class="card-box" :style="[style]">
 			<view class="card-header" >
-				<view class="close" v-if="showClose" @click="closeFn"><uniIcon type="close" size="26"></uniIcon></view>
+				<view class="close" v-if="showClose" @click="closeFn">
+					<image src="../../static/close.png" mode=""></image>
+				</view>
 				<view class="title f30" v-if="title || $slots.title">
 					<slot name="title">{{ title }}</slot>
 				</view>
@@ -15,9 +17,7 @@
 </template>
 
 <script>
-import uniIcon from '../uni-icons/uni-icons.vue';
 export default {
-	components: { uniIcon },
 	props: {
 		visible: {
 		   /*  是否打开弹窗  */	
@@ -104,8 +104,13 @@ export default {
 			margin-bottom: 30rpx;
 
 			.close {
-				margin: 20rpx 20rpx 10rpx 0;
+				margin: 30rpx 30rpx 10rpx 0;
 				text-align: end;
+				
+				image{
+					width: 32rpx;
+					height: 32rpx;
+				}
 			}
 
 			.title {

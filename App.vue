@@ -21,6 +21,8 @@
 /* margin,padding */
 @import url('./styles/boxAbout.css');
 
+/* 颜色 */
+@import url('./styles/color.css');
 
 /*单行文本溢出省略号*/
 .one-t {

@@ -1,21 +1,16 @@
-# uniTemplate
-# 概述
-自己在工作中用到的组件和方法封装的一套轻量型模板(每次打开请先清楚浏览器缓存,gitee存在缓存问题导致文档没有更新最新的)[参考文档](https://zbano.gitee.io/docs) 
- 
-> 适用于
-> - [x] 小程序
-> - [x] H5
+# uni-app  
+[参考文档](https://zbano.gitee.io/docs) 
+## Project setup
+```
+npm install
+```
 
+### Compiles and hot-reloads for development
+```
+npm run dev:mp-weixin
+```
 
-# 组件
-- [x] 上传
-- [x] 按钮
-- [x] 卡片
-- [x] 导航栏
-- [x] 搜索栏
-- [x] 轮播图
-- [x] 选择器
-- [] 下拉框
-
-
-
+### Compiles and minifies for production
+```
+npm run build:mp-weixin
+```

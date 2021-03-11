@@ -4,6 +4,7 @@ import App from './App'
 import commMethond from './mixins/index.js'
 Vue.mixin(commMethond)
 
+
 // 组件
 import BtnCom from './components/BtnCom/index.vue' 
 import CardCom from './components/CardCom/index.vue' 
@@ -26,6 +27,6 @@ Vue.config.productionTip = false
 App.mpType = 'app'
 
 const app = new Vue({
-    ...App
+  ...App
 })
 app.$mount()

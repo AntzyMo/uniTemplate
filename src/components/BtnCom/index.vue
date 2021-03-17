@@ -51,6 +51,7 @@ export default {
       loading: false,
     };
   },
+ 
 
   computed: {
     style() {

@@ -11,7 +11,7 @@
       <view class="mb20">
         <codeCom opacity="2"></codeCom>
       </view>
-      <view class="c1890ff" @click="dialogVisible = true">打开DialogCom</view>
+      <view class="mb20 c1890ff" @click="dialogVisible = true">打开DialogCom</view>
       <DialogCom title="DialogCom" :visible.sync="dialogVisible">
         <view>内容</view>
         <view slot="footer" class="dialog-footer">
@@ -19,6 +19,11 @@
           <BtnCom class="flex1" @click="dialogVisible = false">确定</BtnCom>
         </view>
       </DialogCom>
+
+  <view class="c1890ff" @click="selectvisible=true">打开SelectDialogCom</view>
+      <SelectDialogCom class="SelectDialogCom" :visible.sync="selectvisible"></SelectDialogCom>
+
+      
     </view>
   </view>
 </template>
@@ -28,11 +33,14 @@ import codeCom from "../../components/CodeCom/index.vue";
 import DialogCom from "../../components/DialogCom/index.vue";
 import SwiperCom from "@/components/SwiperCom";
 import SearchCom from "@/components/SearchCom";
+import SelectDialogCom from "@/components/SelectDialogCom";
+
 
 export default {
-  components: { codeCom, SwiperCom, DialogCom, SearchCom },
+  components: { codeCom, SwiperCom, DialogCom, SearchCom,SelectDialogCom },
   data() {
     return {
+      selectvisible:false,
       searchVAlue: "",
       dialogVisible: false,
       form: {
@@ -63,8 +71,11 @@ export default {
       ],
     };
   },
-  onLoad() {},
-
+ 
+ onLoad(){
+   console.log(document,'cc')
+    this.setStorage('valww', {name:1,name2:0})
+  },
   methods: {
     bindPickerChange(data) {
       console.log(data, "22");
@@ -117,4 +128,6 @@ export default {
     }
   }
 }
+
+
 </style>

@@ -21,7 +21,7 @@
       </DialogCom>
 
   <view class="c1890ff" @click="selectvisible=true">打开SelectDialogCom</view>
-      <SelectDialogCom class="SelectDialogCom" :visible.sync="selectvisible"></SelectDialogCom>
+      <SelectDialogCom  :visible.sync="selectvisible"></SelectDialogCom>
 
       
     </view>

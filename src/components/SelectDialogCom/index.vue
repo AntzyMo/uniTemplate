@@ -122,7 +122,7 @@ export default {
   right: 0;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.6);
-  transition: .2s;
+  
 
   .content {
     position: fixed;

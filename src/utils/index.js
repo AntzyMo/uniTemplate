@@ -1,4 +1,3 @@
-import { reject, resolve } from 'core-js/fn/promise';
 import QQMapWX  from './qqmap-wx-jssdk.min.js';
 
 /**

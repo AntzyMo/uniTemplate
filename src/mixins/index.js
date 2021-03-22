@@ -113,27 +113,7 @@ export default {
 		
 		},
 		
-		// 百度地图-地址解析
-		geocoding(ak, address) {
-			return new Promise((resolve, reject) => {
-				new utils.BMapwx(ak).geocoding(address).then(res => {
-					resolve(res)
-				}).catch(err => {
-					reject(err)
-				})
-			})
-		},
 		
-		// 百度地图-逆地址解析
-		regeocoding(ak, location) {
-			return new Promise((resolve, reject) => {
-				new utils.BMapwx(ak).regeocoding(location).then(res => {
-					resolve(res)
-				}).catch(err => {
-					reject(err)
-				})
-			})
-		},
 		
 		// 腾讯地图-地址解析
 		geocoder(key,address){

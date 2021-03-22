@@ -1,4 +1,3 @@
-import bmap from './bmap-wx.min.js';
 import QQMapWX  from './qqmap-wx-jssdk.min.js';
 
 /**
@@ -102,63 +101,6 @@ export const transUrl = () => {
 	return paramsObj
 }
 
-
-//百度地图
-export class BMapwx {
-	constructor(ak) {
-		this.BMap = new bmap.BMapWX({
-			ak
-		});
-	}
-
-	// 地址解析
-	geocoding(address) {
-		return new Promise((resolve, reject) => {
-			this.BMap.geocoding({
-				address,
-				fail: fail => {
-					reject(fail)
-				},
-				success: data => {
-					console.log(data)
-					resolve(data.wxMarkerData)
-				}
-			});
-
-		})
-
-	}
-
-	/** 
-	 * 逆地址解析
-	 *  @param {String} location  'latitude,longitude'
-	 */
-
-	regeocoding(location) {
-		return new Promise((resolve, reject) => {
-			this.BMap.regeocoding({
-				location,
-				fail: fail => {
-					reject(fail)
-
-				},
-				success: data => {
-					resolve(data.wxMarkerData[0])
-
-
-				},
-
-			});
-		})
-
-
-	}
-
-
-
-
-
-}
 
 
 //腾讯地图

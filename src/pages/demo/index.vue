@@ -71,7 +71,6 @@ export default {
   height: 400rpx;
 
   .ContentBoxCom{
-
     height: 100%;
 
     // &>view{

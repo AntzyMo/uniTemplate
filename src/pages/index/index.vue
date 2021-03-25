@@ -3,15 +3,23 @@
     <view class="card">
       <SearchCom v-model="searchVAlue"></SearchCom>
       <SearchCom haveSelect></SearchCom>
+      
       <SelectCom v-model="value" :list="list"></SelectCom>
-      <SelectCom mode="date" type="month" v-model="dateValue"></SelectCom>
+      <SelectCom mode="date" type="month" arrowType="right" v-model="dateValue"></SelectCom>
 
-      <TabCom v-model="navVAlue" :props="prpos" :list="clist"></TabCom>
+      <TabCom  v-model="activeName" tabList=""> 
+        <TabPane label="标题1" name="first">标题1</TabPane>
+        <TabPane label="标题2" name="second">标题2</TabPane>
+        <TabPane label="标题3" name="third">标题3</TabPane>
+      </TabCom>
+      
       <BtnCom @click="btnClick">按钮</BtnCom>
       <view class="mb20">
         <codeCom opacity="2"></codeCom>
       </view>
-      <view class="mb20 c1890ff" @click="dialogVisible = true">打开DialogCom</view>
+      <view class="mb20 c1890ff" @click="dialogVisible = true"
+        >打开DialogCom</view
+      >
       <DialogCom title="DialogCom" :visible.sync="dialogVisible">
         <view>内容</view>
         <view slot="footer" class="dialog-footer">
@@ -20,15 +28,19 @@
         </view>
       </DialogCom>
 
-  <view class="c1890ff" @click="selectvisible=true">打开SelectDialogCom</view>
-      <SelectDialogCom  :visible.sync="selectvisible"></SelectDialogCom>
+      <view class="c1890ff" @click="selectvisible = true"
+        >打开SelectDialogCom</view
+      >
+      <SelectDialogCom :visible.sync="selectvisible"></SelectDialogCom>
 
-      
+
     </view>
   </view>
 </template>
 
 <script>
+import TabCom from '@/components/TabCom'
+
 import codeCom from "../../components/CodeCom/index.vue";
 import DialogCom from "../../components/DialogCom/index.vue";
 import SwiperCom from "@/components/SwiperCom";
@@ -37,31 +49,22 @@ import SelectDialogCom from "@/components/SelectDialogCom";
 
 
 export default {
-  components: { codeCom, SwiperCom, DialogCom, SearchCom,SelectDialogCom },
+  components: { TabCom,codeCom, SwiperCom, DialogCom, SearchCom, SelectDialogCom },
   data() {
     return {
-      selectvisible:false,
+      activeName:'second',
+      selectvisible: false,
       searchVAlue: "",
       dialogVisible: false,
       form: {
         input: "11",
       },
-      prpos: {
-        label: "name",
-        value: "type",
-      },
-      navVAlue: 0,
+   
       value: "1",
       dateValue: "2020-11-01",
       title: "Hello",
       activeType: "3",
-      clist: [
-        { name: "测试", type: "0" },
-        { name: "测试1", type: "1" },
-        { name: "测试2", type: "2" },
-        { name: "测试3", type: "3" },
-        { name: "测试4", type: "4" },
-      ],
+     
       list: [
         { label: "测试", value: "0" },
         { label: "测试1", value: "1" },
@@ -71,10 +74,10 @@ export default {
       ],
     };
   },
- 
- onLoad(){
-   console.log(document,'cc')
-    this.setStorage('valww', {name:1,name2:0})
+
+  onLoad() {
+    console.log(document, "cc");
+    this.setStorage("valww", { name: 1, name2: 0 });
   },
   methods: {
     bindPickerChange(data) {
@@ -95,6 +98,9 @@ export default {
     resetFn() {
       console.log(this.searchVAlue, "sea");
     },
+
+  
+
   },
 };
 </script>
@@ -128,6 +134,4 @@ export default {
     }
   }
 }
-
-
 </style>

@@ -1,0 +1,71 @@
+/*-------------------------------------------- 边距 */
+.mb20 {
+	margin-bottom: 20rpx;
+}
+
+.mr20 {
+	margin-right: 20rpx;
+}
+
+.mt20 {
+	margin-top: 20rpx;
+}
+
+.ml20 {
+	margin-left: 20rpx;
+}
+
+.mb30 {
+	margin-bottom: 30rpx;
+}
+
+.mr30 {
+	margin-right: 30rpx;
+}
+
+.mt30 {
+	margin-top: 30rpx;
+}
+
+.ml30 {
+	margin-left: 30rpx;
+}
+
+
+
+/* -------------------------------------padding */
+.pb20 {
+	padding-bottom: 20rpx;
+}
+
+.pr20 {
+	padding-right: 20rpx;
+}
+
+.pt20 {
+	padding-top: 20rpx;
+}
+
+.pl20 {
+	padding-left: 20rpx;
+}
+
+
+.pb30 {
+	padding-bottom: 30rpx;
+}
+
+.pr30 {
+	padding-right: 30rpx;
+}
+
+.pt30 {
+	padding-top: 30rpx;
+}
+
+.pl30 {
+	padding-left: 30rpx;
+}
+
+
+

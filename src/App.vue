@@ -1,3 +1,12 @@
+<!--
+ * @Author: liukai0769 <1017332651@qq.com>
+ * @URL: Do not edit
+ * @Date: 2021-03-25 15:13:01
+ * @LastEditors: liukai0769 <1017332651@qq.com>
+ * @LastEditTime: 2021-03-25 15:53:32
+ * @FilePath: \\unTemplate\\src\\App.vue
+ * @Description:  
+-->
 <script>
 	export default {
 		onLaunch: function() {
@@ -15,6 +24,7 @@
 <style lang="scss">
 	/*每个页面公共css */
 @import url('./styles/index.css');
+@import url('./styles/font_2301558_lprwe158py8.css');
 
 /*单行文本溢出省略号*/
 .one-t {

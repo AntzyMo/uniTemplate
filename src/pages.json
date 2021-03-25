@@ -12,6 +12,12 @@
 			"style": {
 				"navigationBarTitleText": "demo"
 			}
+		},
+		{
+			"path": "pages/lkq-barch/liukaiqiang-barch",
+			"style": {
+				"navigationBarTitleText": "liukai0769-barch"
+			}
 		}
 	],
 	"subPackages": [
@@ -42,6 +48,12 @@
 				"iconPath": "static/logo.png",
 				"selectedIconPath": "static/logo.png",
 				"text": "demo"
+			},
+			{
+				"pagePath": "pages/lkq-barch/liukaiqiang-barch",
+				"iconPath": "static/logo.png",
+				"selectedIconPath": "static/logo.png",
+				"text": "lkq-barch"
 			}
 
 		]

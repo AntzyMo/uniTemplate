@@ -9,7 +9,7 @@ Vue.mixin(commMethond)
 import BtnCom from './components/BtnCom/index.vue' 
 import CardCom from './components/CardCom/index.vue' 
 import SelectCom from './components/SelectCom/index.vue'
-import TabPane from './components/TabCom/tab-pane.vue'
+import TabPane from './components/TabsCom/tab-pane.vue'
 
 Vue.component('BtnCom',BtnCom)
 Vue.component('CardCom',CardCom)

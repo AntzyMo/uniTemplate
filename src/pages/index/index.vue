@@ -7,11 +7,11 @@
       <SelectCom v-model="value" :list="list"></SelectCom>
       <SelectCom mode="date" type="month" arrowType="right" v-model="dateValue"></SelectCom>
 
-      <TabCom  v-model="activeName" @tab-click="tabClick"> 
+      <TabsCom  v-model="activeName" @tab-click="tabClick"> 
         <TabPane label="标题1" name="first">标题1</TabPane>
         <TabPane label="标题2" name="second">标题2</TabPane>
         <TabPane label="标题3" name="third">标题3</TabPane>
-      </TabCom>
+      </TabsCom>
       
       <BtnCom @click="btnClick">按钮</BtnCom>
       <view class="mb20">
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import TabCom from '@/components/TabCom'
+import TabsCom from '@/components/TabsCom'
 
 import codeCom from "../../components/CodeCom/index.vue";
 import DialogCom from "../../components/DialogCom/index.vue";
@@ -49,7 +49,7 @@ import SelectDialogCom from "@/components/SelectDialogCom";
 
 
 export default {
-  components: { TabCom,codeCom, SwiperCom, DialogCom, SearchCom, SelectDialogCom },
+  components: { TabsCom,codeCom, SwiperCom, DialogCom, SearchCom, SelectDialogCom },
   data() {
     return {
       tabList:[

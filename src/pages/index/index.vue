@@ -7,7 +7,7 @@
       <SelectCom v-model="value" :list="list"></SelectCom>
       <SelectCom mode="date" type="month" arrowType="right" v-model="dateValue"></SelectCom>
 
-      <TabCom  v-model="activeName" tabList=""> 
+      <TabCom  v-model="activeName" @tab-click="tabClick"> 
         <TabPane label="标题1" name="first">标题1</TabPane>
         <TabPane label="标题2" name="second">标题2</TabPane>
         <TabPane label="标题3" name="third">标题3</TabPane>
@@ -52,6 +52,11 @@ export default {
   components: { TabCom,codeCom, SwiperCom, DialogCom, SearchCom, SelectDialogCom },
   data() {
     return {
+      tabList:[
+        {name:'标题一',id:'first'},
+        {name:'标题二',id:'second'},
+        {name:'标题三',id:'seconds'}
+        ],
       activeName:'second',
       selectvisible: false,
       searchVAlue: "",
@@ -82,6 +87,10 @@ export default {
   methods: {
     bindPickerChange(data) {
       console.log(data, "22");
+    },
+
+    tabClick(data){
+      console.log(data,'data22')
     },
 
     btnClick() {

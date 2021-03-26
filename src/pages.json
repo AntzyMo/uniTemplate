@@ -13,6 +13,7 @@
 				"navigationBarTitleText": "demo"
 			}
 		}
+		
 	],
 	"subPackages": [
 		{
@@ -25,7 +26,7 @@
 					}
 				}
 			]
-		}
+		}  
 	],
 	"tabBar": {
 		"color": "#ccc",
@@ -43,6 +44,7 @@
 				"selectedIconPath": "static/logo.png",
 				"text": "demo"
 			}
+			
 
 		]
 	},

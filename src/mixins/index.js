@@ -284,6 +284,16 @@ export default {
 					},
 
 					fail: err => {
+						// this.showModal({
+						// 	title: '提示',
+						// 	content: '建议获取定位授权'
+						// }).then(res => {
+						// 	uni.openSetting({
+						// 		success(res) {
+
+						// 		}
+						// 	})
+						// })
 						this.message('请点击右上角...进行授权')
 					}
 				})

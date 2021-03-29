@@ -1,9 +1,9 @@
-import {baserul} from './url.js'
+import { baserul } from './url.js'
 /**	
  * 全局默认配置
  * */
 const baseDefault = {
-	url:baserul,
+	url: baserul,
 	header: {
 		// 'content-type':'application/json',
 		'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -21,15 +21,15 @@ const baseDefault = {
 function request(Object) {
 
 	return new Promise((resolve, reject) => {
-		
-		if(Object.loading){
-			uni.showLoading({mask:true})
+
+		if (Object.loading) {
+			uni.showLoading({ mask: true })
 		}
 
 		uni.request({
 			url: Object.publicPath ? Object.url : (baseDefault.url + Object.url),
 			method: Object.method.toUpperCase() || 'GET',
-			data: {...Object.data ,token:uni.getStorageSync('token')}|| {},
+			data: { ...Object.data, token: uni.getStorageSync('token') } || {},
 			header: {
 				// 'Authorization': uni.getStorageSync('token') || 'X-wx-ToKen',
 				...baseDefault.header,
@@ -37,7 +37,7 @@ function request(Object) {
 			},
 			success(res) {
 				uni.hideLoading()
-			
+
 
 				// console.log(res)
 				let {
@@ -82,7 +82,7 @@ function request(Object) {
 
 			fail(err) {
 				uni.hideLoading()
-				
+
 
 				uni.showToast({
 					title: '网络出现问题...',

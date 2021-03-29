@@ -6,8 +6,8 @@
       :disabled="disabled"
       :loading="loading"
       :open-type="openType"
-      @getuserinfo="getuserinfo"
-      @getphonenumber="getphonenumber"
+      @getuserinfo="getUserInfo"
+      @getphonenumber="getPhoneNumber"
       :style="[style,{ borderRadius: br + 'rpx' }]"
     >
       <slot></slot>
@@ -78,12 +78,12 @@ export default {
     },
 
     //获取用户信息
-    getuserinfo(data) {
-      this.$emit("getuserinfo", data);
+    getUserInfo(data) {
+      this.$emit("getUserInfo", data);
     },
 
     // 获取手机号
-    getphonenumber(data) {
+    getPhoneNumber(data) {
       console.log(data, "222");
     },
   },

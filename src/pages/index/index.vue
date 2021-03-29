@@ -3,16 +3,22 @@
     <view class="card">
       <SearchCom v-model="searchVAlue"></SearchCom>
       <SearchCom haveSelect></SearchCom>
-      
-      <SelectCom v-model="value" :list="list"></SelectCom>
-      <SelectCom mode="date" type="month" arrowType="right" v-model="dateValue"></SelectCom>
 
-      <TabsCom  v-model="activeName" @tab-click="tabClick"> 
-        <TabPane label="标题1" name="first">标题1</TabPane>
-        <TabPane label="标题2" name="second">标题2</TabPane>
-        <TabPane label="标题3" name="third">标题3</TabPane>
-      </TabsCom>
-      
+      <SelectCom v-model="value" :list="list"></SelectCom>
+      <SelectCom
+        mode="date"
+        type="month"
+        arrowType="right"
+        v-model="dateValue"
+      ></SelectCom>
+
+      <view class="mb20">
+        <TabsCom v-model="activeName" @tab-click="tabClick">
+          <TabPane label="标题1" name="first">标题1</TabPane>
+          <TabPane label="标题2" name="second">标题2</TabPane>
+          <TabPane label="标题3" name="third">标题3</TabPane>
+        </TabsCom>
+      </view>
       <BtnCom @click="btnClick">按钮</BtnCom>
       <view class="mb20">
         <codeCom opacity="2"></codeCom>
@@ -32,14 +38,12 @@
         >打开SelectDialogCom</view
       >
       <SelectDialogCom :visible.sync="selectvisible"></SelectDialogCom>
-
-
     </view>
   </view>
 </template>
 
 <script>
-import TabsCom from '@/components/TabsCom'
+import TabsCom from "@/components/TabsCom";
 
 import codeCom from "../../components/CodeCom/index.vue";
 import DialogCom from "../../components/DialogCom/index.vue";
@@ -47,29 +51,35 @@ import SwiperCom from "@/components/SwiperCom";
 import SearchCom from "@/components/SearchCom";
 import SelectDialogCom from "@/components/SelectDialogCom";
 
-
 export default {
-  components: { TabsCom,codeCom, SwiperCom, DialogCom, SearchCom, SelectDialogCom },
+  components: {
+    TabsCom,
+    codeCom,
+    SwiperCom,
+    DialogCom,
+    SearchCom,
+    SelectDialogCom,
+  },
   data() {
     return {
-      tabList:[
-        {name:'标题一',id:'first'},
-        {name:'标题二',id:'second'},
-        {name:'标题三',id:'seconds'}
-        ],
-      activeName:'second',
+      tabList: [
+        { name: "标题一", id: "first" },
+        { name: "标题二", id: "second" },
+        { name: "标题三", id: "seconds" },
+      ],
+      activeName: "second",
       selectvisible: false,
       searchVAlue: "",
       dialogVisible: false,
       form: {
         input: "11",
       },
-   
+
       value: "1",
       dateValue: "2020-11-01",
       title: "Hello",
       activeType: "3",
-     
+
       list: [
         { label: "测试", value: "0" },
         { label: "测试1", value: "1" },
@@ -89,8 +99,8 @@ export default {
       console.log(data, "22");
     },
 
-    tabClick(data){
-      console.log(data,'data22')
+    tabClick(data) {
+      console.log(data, "data22");
     },
 
     btnClick() {
@@ -107,9 +117,6 @@ export default {
     resetFn() {
       console.log(this.searchVAlue, "sea");
     },
-
-  
-
   },
 };
 </script>

@@ -3,7 +3,7 @@
  * @URL: Do not edit
  * @Date: 2021-03-25 15:29:44
  * @LastEditors: liukai0769 <1017332651@qq.com>
- * @LastEditTime: 2021-03-25 17:13:46
+ * @LastEditTime: 2021-03-29 11:30:50
  * @FilePath: \\unTemplate\\src\\pages\\lkq-barch\\liukaiqiang-barch.vue
  * @Description:  
 -->
@@ -13,6 +13,8 @@
       <title-lkq :title="title" :mark="mark" :link="link"></title-lkq>
       <article-lkq :title="title" :mark="mark1" :classData="classData" :link="link" :links="links"></article-lkq>
       <article1-lkq :title="title" :mark="mark1" :shopData="shopData" :link="link" :links="links"></article1-lkq>
+      <breadcrumbs-lkq :cateArr="cateArr"></breadcrumbs-lkq>
+      <daohang-lkq :cateData="cateData"></daohang-lkq>
   </view>
 </template>
 
@@ -21,10 +23,12 @@ import searchLkq from "@/components/SearchLkq/index.vue";
 import titleLkq from "@/components/TitleLkq/index.vue";
 import articleLkq from "@/components/ArticleLkq/index.vue";
 import article1Lkq from "@/components/Article1Lkq/index.vue";
+import breadcrumbsLkq from "@/components/BreadcrumbsLkq/index.vue";
+import daohangLkq from "@/components/DaohangLkq/index.vue";
 
 
 export default {
-  components: { searchLkq,titleLkq,articleLkq,article1Lkq},
+  components: { searchLkq,titleLkq,articleLkq,article1Lkq,breadcrumbsLkq,daohangLkq},
   data() {
     return {
       tishi:'请输入您要搜索的内容',
@@ -68,7 +72,16 @@ export default {
           image:"/uploads/20210120/6ff223022ce9e9446cf0ad3c927d6e6e.png"
         }
       ],
-      links:"/pages/index/index"
+      links:"/pages/index/index",
+      cateArr:[
+        {id:0, name:"全部", sort:100,nums:1118},
+        {id:0, name:"分类", sort:100,nums:118},
+        {id:0, name:"课程分类", sort:100,nums:108}
+      ],
+      cateData:[
+        {id:2,name:"热门活动",smallint:2},
+        {id:3,name:"快乐互动",smallint:2},
+      ]
     };
   },
  

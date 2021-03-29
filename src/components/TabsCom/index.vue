@@ -71,39 +71,53 @@ export default {
 </script>
 <style lang="scss" scoped>
 .tab-box-com {
-  width: 100%;
+	width: 100%;
 
-  .tab-box-com-header {
-    border-bottom: 10rpx solid #f6f6f6;
-    margin-bottom: 25rpx;
+	.tab-box-com-header {
+		border-bottom: 10rpx solid #f6f6f6;
+		margin-bottom: 25rpx;
 
-    .scroll-box {
-      width: 100%;
-      height: 100%;
-      background: #fff;
+		.scroll-box {
+			width: 100%;
+			height: 100%;
+			background: #fff;
 
-      .tab-nav-box {
-        width: 100%;
-        display: flex;
-        white-space: nowrap;
+			.tab-nav-box {
+				width: 100%;
+				display: flex;
+				white-space: nowrap;
 
-        .tab-nav {
-          height: 64rpx;
-          padding: 0 20rpx;
-          text-align: center;
+				.tab-nav {
+					height: 64rpx;
+					padding: 0 20rpx;
+					text-align: center;
 
-          .nav-name {
-            min-width: 100rpx;
-            height: 90%;
-          }
-        }
+					.nav-name {
+						min-width: 100rpx;
+						height: 100%;
+					}
+				}
 
-        .tab-nav-active {
-          color: #1890ff;
-          border-bottom: 4rpx solid #1890ff;
-        }
-      }
-    }
-  }
+				.tab-nav-active {
+					color: #1890ff;
+					position: relative;
+					height: 100%;
+          
+					&:after {
+						content: '';
+						background: #1890ff;
+						position: absolute;
+						bottom: 0;
+						left: 50%;
+						transform: translateX(-50%);
+						height: 7rpx;
+						width: 50%;
+						border-radius: 38rpx;
+					}
+				}
+			}
+		}
+	}
 }
+
 </style>

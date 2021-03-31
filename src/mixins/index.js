@@ -1,4 +1,4 @@
-import wxDecode from "@/utils/WXBizDataCrypt";
+import WXDecode from "@/utils/WXBizDataCrypt";
 import * as utils from '@/utils'
 
 import {
@@ -79,28 +79,28 @@ export default {
 		},
 
 		//提示框
-		message(title,duration=1500) {
+		message(title, duration = 1500) {
 			uni.showToast({
 				title,
 				icon: 'none',
 				duration
 			})
 		},
-		
+
 		//模态框
-		messageBox(object={title:'',content:'',showCancel:true}) {
+		messageBox(object = { title: '', content: '', showCancel: true }) {
 			return new Promise((resolve, reject) => {
 				uni.showModal({
-					title:object.title,
-					content:object.content,
-					showCancel:object.showCancel,
+					title: object.title,
+					content: object.content,
+					showCancel: object.showCancel,
 					success: success => {
-						if(success.confirm){
+						if (success.confirm) {
 							// 确定
 							resolve()
 						}
-						
-						if(success.cancel){
+
+						if (success.cancel) {
 							// 取消
 							reject()
 						}
@@ -110,13 +110,13 @@ export default {
 					}
 				})
 			})
-		
+
 		},
-		
-		
-		
+
+
+
 		// 腾讯地图-地址解析
-		geocoder(key,address){
+		geocoder(key, address) {
 			return new Promise((resolve, reject) => {
 				new utils.MapWx(key).geocoder(address).then(res => {
 					resolve(res)
@@ -124,19 +124,19 @@ export default {
 					reject(err)
 				})
 			})
-			},
-			
-			// 腾讯地图-逆地址解析
-			reverseGeocoder(key, location) {
-				return new Promise((resolve, reject) => {
-					new utils.MapWx(key).reverseGeocoder(location).then(res => {
-						resolve(res)
-					}).catch(err => {
-						reject(err)
-					})
+		},
+
+		// 腾讯地图-逆地址解析
+		reverseGeocoder(key, location) {
+			return new Promise((resolve, reject) => {
+				new utils.MapWx(key).reverseGeocoder(location).then(res => {
+					resolve(res)
+				}).catch(err => {
+					reject(err)
 				})
-			},
-		
+			})
+		},
+
 		//打电话
 		callPhone(phoneNumber) {
 			uni.makePhoneCall({
@@ -155,20 +155,19 @@ export default {
 		},
 
 		// 打开地图-用于搜索地址，选择位置
-		searchLocation(longitude, latitude) {
-			return new Promise((resolve, reject) => {
-
-				uni.chooseLocation({
-					longitude, // 经度
-					latitude, // 纬度
-					success: res => {
-						resolve(res)
-					},
-					fail:err=>{
-						reject(err)
+		searchLocation(longitude, latitude, callback) {
+			uni.chooseLocation({
+				longitude: Number(longitude), // 经度
+				latitude: Number(latitude), // 纬度
+				success: res => {
+					if (typeof callback === 'function') {
+						callback(res)
 					}
-				})
+
+				},
+
 			})
+
 		},
 
 
@@ -221,7 +220,7 @@ export default {
 			})
 		},
 
-		
+
 
 		// 图片处理-预览图片
 		previewImage(urls = [], current = 0) {
@@ -237,67 +236,69 @@ export default {
 		},
 
 		// 图片处理-获取图片信息
-		getImageInfo(src = '') {
-			return new Promise((resolve, reject) => {
-				uni.getImageInfo({
-					src: src,
-					success: (image) => {
-						resolve(image)
-					},
-					fail(err) {
-						console.log('getImageInfo出错', src, err)
-					},
-				})
-			}).catch(e => {
-				reject(e)
+		getImageInfo(src = '', callback) {
+			uni.getImageInfo({
+				src: src,
+				success: (image) => {
+					if (typeof callback === 'function') {
+						callback(image)
+					}
+
+				},
+				fail(err) {
+					console.log('getImageInfo出错', src, err)
+				},
 			})
+
 
 		},
 
 
 
 		// 微信登录
-		wxLogin() {
-			return new Promise((resolve, reject) => {
-				uni.login({
-					provider: 'weixin',
-					success: data => {
-						resolve(data.code)
+		wxLogin(callback) {
+			uni.login({
+				provider: 'weixin',
+				success: data => {
+					if (typeof callback === 'function') {
+						callback(data.code)
 					}
-				});
-			})
 
+				}
+			});
 		},
 
 		// 获取位置
-		getLocation() {
-			return new Promise((resolve, reject) => {
-				uni.authorize({
-					scope: 'scope.userLocation',
-					success: res => {
-						uni.getLocation({
-							type: 'gcj02',
-							success: res => {
-								resolve(res)
+		getLocation(callback) {
+			uni.authorize({
+				scope: 'scope.userLocation',
+				success: _ => {
+					uni.getLocation({
+						type: 'gcj02',
+						success: res => {
+							if (typeof callback === 'function') {
+								callback(res)
 							}
-						});
-					},
 
-					fail: err => {
-						// this.showModal({
-						// 	title: '提示',
-						// 	content: '建议获取定位授权'
-						// }).then(res => {
-						// 	uni.openSetting({
-						// 		success(res) {
+						}
+					});
+				},
 
-						// 		}
-						// 	})
-						// })
-						this.message('请点击右上角...进行授权')
-					}
-				})
+				fail: err => {
+					// this.showModal({
+					// 	title: '提示',
+					// 	content: '建议获取定位授权'
+					// }).then(res => {
+					// 	uni.openSetting({
+					// 		success(res) {
+
+					// 		}
+					// 	})
+					// })
+					this.message('请点击右上角...进行授权')
+				}
 			})
+
 
 		},
 
@@ -314,7 +315,7 @@ export default {
 				return false
 			}
 		},
-		
+
 		/**
 		 * 表单验证是否为空，只支持字符串
 		 * @param {Object} fields 需要验证的对象
@@ -332,22 +333,22 @@ export default {
 					return;
 				}
 			}
-		
+
 			if (isTrue) {
 				callback();
 			}
 		},
-		
+
 
 		//时间戳转日期格式
-		parseTime(date=new Date(), format = '{y}-{m}-{d}') {
+		parseTime(date = new Date(), format = '{y}-{m}-{d}') {
 			return utils.parseTime(date, format)
 		},
 
 
-		//步数解密
+		// 解密
 		wxDecode(data) {
-			let pc = new wxDecode(data.appId, data.sessionKey)
+			let pc = new WXDecode(data.appId, data.sessionKey)
 			let val = pc.decryptData(data.encryptedData, data.iv)
 			return val
 		}

@@ -11,7 +11,7 @@
       :key="index"
       @click="imageClickFn(item)"
     >
-      <image :src="item[props.image]" mode="aspectFill"></image>
+      <image :src="item[imageProps]" mode="aspectFill"></image>
     </swiper-item>
   </swiper>
 </template>
@@ -29,11 +29,9 @@ export default {
       default: 2000,
     },
 
-    props: {
-      type: Object,
-      default: (_) => ({
-        image: "image",
-      }),
+    imageProps: {
+      type: String,
+      default: 'image',
     },
   },
   computed: {

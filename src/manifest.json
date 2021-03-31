@@ -61,6 +61,11 @@
 		"optimization" : {
             "subPackages" : true //设置分包
         },
+		"permission": {
+			"scope.userLocation": {
+			  "desc": "用于定位" 
+			}
+		},
 		"usingComponents": true
 	},
 	"mp-alipay" : {

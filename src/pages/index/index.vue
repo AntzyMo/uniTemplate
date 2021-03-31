@@ -91,9 +91,9 @@ export default {
   },
 
   onLoad() {
-    console.log(document, "cc");
     this.setStorage("valww", { name: 1, name2: 0 });
   },
+
   methods: {
     bindPickerChange(data) {
       console.log(data, "22");
@@ -112,6 +112,7 @@ export default {
     },
     blurFn(e) {
       console.log(this.searchVAlue, "sea");
+     
     },
 
     resetFn() {

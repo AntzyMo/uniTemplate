@@ -22,12 +22,13 @@
 				{
 					"path": "pages/index",
 					"style": {
-						"navigationBarTitleText": "狮友详情"
+						"navigationBarTitleText": "demo-package"
 					}
 				}
 			]
 		}  
 	],
+	
 	"tabBar": {
 		"color": "#ccc",
 		"selectedColor": "#13187a",

@@ -27,7 +27,7 @@ function request(Object) {
 		}
 
 		uni.request({
-			url: Object.publicPath ? Object.url : (baseDefault.url + Object.url),
+			url:  Object.url.includes('http') ?   Object.url  : (baseDefault.url + Object.url),
 			method: Object.method.toUpperCase() || 'GET',
 			data: { ...Object.data, token: uni.getStorageSync('token') } || {},
 			header: {

@@ -47,7 +47,7 @@ export default {
       default: "",
     },
 
-    // 上传的图片字段名称
+    // 上传的文件字段名称
     name: {
       type: String,
       default: "file",

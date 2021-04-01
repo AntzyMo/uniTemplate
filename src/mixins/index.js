@@ -88,12 +88,10 @@ export default {
 		},
 
 		//模态框
-		messageBox(object = { title: '', content: '', showCancel: true }) {
+		messageBox(object) {
 			return new Promise((resolve, reject) => {
 				uni.showModal({
-					title: object.title,
-					content: object.content,
-					showCancel: object.showCancel,
+					...object,
 					success: success => {
 						if (success.confirm) {
 							// 确定
@@ -165,56 +163,6 @@ export default {
 					}
 
 				}
-			})
-		},
-
-
-		// 图片处理-选择图片
-		chooseImage(count = 1, callback) {
-			uni.chooseImage({
-				count: count, // 最多可以选择的图片张数 默认9
-				sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-				sourceType: ['album'], //从相册选择
-				success: res => {
-					if (typeof callback === 'function') {
-						callback(res.tempFilePaths)
-					}
-
-				}
-			});
-
-		},
-
-		// 图片处理-上传图片
-		uploadImage(api, url) {
-			uni.showLoading({
-				title: '上传中'
-			});
-			return new Promise((resolve, reject) => {
-				uni.uploadFile({
-					url: api,
-					filePath: url,
-					name: 'file',
-					success: res => {
-						res = JSON.parse(res.data);
-						if (res.code === 1) {
-							uni.hideLoading()
-							uni.showToast({
-								title: '上传成功',
-								icon: 'none'
-							});
-							resolve(res.data)
-						} else {
-							uni.hideLoading()
-							uni.showModal({
-								title: '上传失败',
-								content: res.msg
-							});
-						}
-					}
-				});
-			}).catch(e => {
-				reject(e)
 			})
 		},
 

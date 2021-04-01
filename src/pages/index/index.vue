@@ -34,23 +34,25 @@
         </view>
       </DialogCom>
 
-      <view class="c1890ff" @click="selectvisible = true"
+      <view class="c1890ff mb20" @click="selectvisible = true"
         >打开SelectDialogCom</view
       >
       <SelectDialogCom :visible.sync="selectvisible"></SelectDialogCom>
+
+      <view class="mb20 c1890ff">上传</view>
+      <UploadCom :limit="3" v-model="uploadList" action="https://api.fucai.kcshop.vip/api/common/upload"></UploadCom>
     </view>
   </view>
 </template>
 
 <script>
 import TabsCom from "@/components/TabsCom";
-
+import UploadCom from '@/components/UploadCom'
 import codeCom from "../../components/CodeCom/index.vue";
 import DialogCom from "../../components/DialogCom/index.vue";
 import SwiperCom from "@/components/SwiperCom";
 import SearchCom from "@/components/SearchCom";
 import SelectDialogCom from "@/components/SelectDialogCom";
-
 export default {
   components: {
     TabsCom,
@@ -59,6 +61,7 @@ export default {
     DialogCom,
     SearchCom,
     SelectDialogCom,
+    UploadCom
   },
   data() {
     return {
@@ -67,6 +70,7 @@ export default {
         { name: "标题二", id: "second" },
         { name: "标题三", id: "seconds" },
       ],
+      uploadList:'',
       activeName: "second",
       selectvisible: false,
       searchVAlue: "",
@@ -95,6 +99,10 @@ export default {
   },
 
   methods: {
+   beforeUpload(files){
+     console.log(files,'files')
+     return false
+   },
     bindPickerChange(data) {
       console.log(data, "22");
     },
@@ -118,6 +126,11 @@ export default {
     resetFn() {
       console.log(this.searchVAlue, "sea");
     },
+
+
+    uploadFn(){
+    
+    }
   },
 };
 </script>

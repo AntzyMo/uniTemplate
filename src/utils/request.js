@@ -74,7 +74,7 @@ function request(Object) {
 							title: msg,
 							icon: 'none'
 						})
-						reject(msg)
+						reject(res.data)
 						break;
 				}
 

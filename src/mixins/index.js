@@ -212,6 +212,20 @@ export default {
 
 		},
 
+		//获取用户信息
+		getUserProfile(callback){
+			wx.getUserProfile({
+				lang:'zh_CN',
+				desc:'获取你的昵称、头像、地区及性别',
+				success:data=>{
+					if (typeof callback === 'function') {
+						callback(data.userInfo)
+					}
+				}
+				
+			})
+		},
+		
 		// 获取位置
 		getLocation() {
 			return new Promise((resolve, reject) => {

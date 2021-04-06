@@ -221,6 +221,9 @@ export default {
 					if (typeof callback === 'function') {
 						callback(data.userInfo)
 					}
+				},
+				fail:err=>{
+					this.message('请同意授权')
 				}
 				
 			})

@@ -199,9 +199,12 @@ export default {
 			uni.login({
 				provider: 'weixin',
 				success: data => {
-					if (typeof callback === 'function') {
-						callback(data.code)
+					if(data.errMsg.includes('ok')){
+						if (typeof callback === 'function') {
+							callback(data.code)
+						}
 					}
+					
 
 				}
 			});
@@ -288,10 +291,10 @@ export default {
 		},
 
 
-		//步数解密
-		wxDecode(data) {
-			let pc = new WXDecode(data.appId, data.sessionKey)
-			let val = pc.decryptData(data.encryptedData, data.iv)
+		// 微信解密
+		wxDecode(appId,sessionKey,encryptedData,iv) {
+			let pc = new WXDecode(appId, sessionKey)
+			let val = pc.decryptData(encryptedData, iv)
 			return val
 		}
 

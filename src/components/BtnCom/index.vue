@@ -6,7 +6,6 @@
       :disabled="disabled"
       :loading="loading"
       :open-type="openType"
-      @getuserinfo="getUserInfo"
       @getphonenumber="getPhoneNumber"
       :style="[style,{ borderRadius: br + 'rpx' }]"
     >
@@ -77,14 +76,9 @@ export default {
       this.$emit("click");
     },
 
-    //获取用户信息
-    getUserInfo(data) {
-      this.$emit("getUserInfo", data);
-    },
-
     // 获取手机号
     getPhoneNumber(data) {
-      console.log(data, "222");
+      this.$emit('getPhoneNumber',data)
     },
   },
 };

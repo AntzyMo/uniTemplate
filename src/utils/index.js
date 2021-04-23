@@ -102,6 +102,22 @@ export const transUrl = () => {
 }
 
 
+//扫一扫获取小程序码参数
+export const transQrUrl= url => {
+	let params = url.slice(url.indexOf("?") + 1).split("&");
+	params[0] = decodeURIComponent(params[0])
+	let paramsStr = params[0].slice(6);
+	let paramsObj = {}
+	paramsStr.split('&').forEach((item) => {
+		let data = item.split("=");
+		// console.log(data,'data')
+		paramsObj[data[0]] = data[1];
+	});
+	console.log(paramsObj, 'params')
+	return paramsObj
+}
+
+
 
 //腾讯地图
 export class MapWx {

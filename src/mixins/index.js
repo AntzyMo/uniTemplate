@@ -199,13 +199,11 @@ export default {
 			uni.login({
 				provider: 'weixin',
 				success: data => {
-					if(data.errMsg.includes('ok')){
+					if (data.errMsg.includes('ok')) {
 						if (typeof callback === 'function') {
 							callback(data.code)
 						}
 					}
-					
-
 				}
 			});
 
@@ -213,22 +211,22 @@ export default {
 		},
 
 		//获取用户信息
-		getUserProfile(callback){
-			wx.getUserProfile({
-				lang:'zh_CN',
-				desc:'获取你的昵称、头像、地区及性别',
-				success:data=>{
-					if (typeof callback === 'function') {
-						callback(data.userInfo)
+		getUserProfile() {
+			return new Promise((resolve, reject) => {
+				wx.getUserProfile({
+					lang: 'zh_CN',
+					desc: '获取你的昵称、头像、地区及性别',
+					success: data => {
+						resolve(data.userInfo)
+					},
+					fail: err => {
+						reject(err)
 					}
-				},
-				fail:err=>{
-					this.message('请同意授权')
-				}
-				
+
+				})
 			})
 		},
-		
+
 		// 获取位置
 		getLocation() {
 			return new Promise((resolve, reject) => {
@@ -309,7 +307,7 @@ export default {
 
 
 		// 微信解密
-		wxDecode(appId,sessionKey,encryptedData,iv) {
+		wxDecode(appId, sessionKey, encryptedData, iv) {
 			let pc = new WXDecode(appId, sessionKey)
 			let val = pc.decryptData(encryptedData, iv)
 			return val

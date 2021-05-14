@@ -5,8 +5,15 @@ import {
 	baserul
 } from '@/utils/url'
 export default {
+	onShow(){
+		// #ifdef H5
+		this.$showBox()
+		// #endif 
+	},
+
 	methods: {
 
+	
 		//跳转路由
 		toRouter(data, type) {
 			let routerType = {

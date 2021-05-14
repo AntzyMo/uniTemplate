@@ -41,7 +41,9 @@
 
       <view class="mb20 c1890ff">上传</view>
       <UploadCom :limit="3" v-model="uploadList" action="https://api.fucai.kcshop.vip/api/common/upload"></UploadCom>
-    
+      
+
+
     </view>
   </view>
 </template>
@@ -97,9 +99,8 @@ export default {
 
   onLoad() {
     this.setStorage("valww", { name: 1, name2: 0 });
-    
-  },
-
+  },  
+ 
   methods: {
    beforeUpload(files){
      console.log(files,'files')

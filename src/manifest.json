@@ -1,6 +1,7 @@
 {
 	"name": "小程序",
-	"appid": "touristappid",
+	// "appid": "touristappid",
+	"appid":"wx359c55bf73aeaa23",
 	"description": "",
 	"versionName": "1.0.0",
 	"versionCode": "100",

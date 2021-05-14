@@ -2,10 +2,9 @@
   <view>
     <btnCom
       class="mb20"
-      @click="toRouter({ url: '/pages/demo-package/pages/index' })"
+      @click="toRouter({ url: '/pages/demo-package/pages/index',params:{name:1,name2:2} }) "
       >进入分包</btnCom
     >
-
     <view class="mb20">
       <view>{{ value.name2 }}</view>
       <btnCom @click="setSeeion">设置缓存</btnCom>
@@ -16,16 +15,23 @@
       <ContentBoxCom class="ContentBoxCom"></ContentBoxCom>
     </view>
 
+          <view class="mb20 c1890ff" @click="createCanvas">生成海报</view>
+      <CanvansCom ref="CanvansCom"></CanvansCom>
+
+
   </view>
 </template>
 
 <script>
 import SwiperCom from "@/components/SwiperCom";
 import ContentBoxCom from "@/components/ContentBoxCom";
+import CanvansCom from "@/components/CanvansCom";
+
 export default {
   components: {
     ContentBoxCom,
     SwiperCom,
+    CanvansCom
   },
 
   data() {
@@ -34,19 +40,6 @@ export default {
     };
   },
 
-  // computed:{
-  //   value:{
-  // 	 get(){
-  // 	  return  this.getStorage("valww")
-  //    },
-
-  //    set(val){
-  // 	   console.log(val,222333)
-  // 	   this.setStorage("valww",val)
-  // 	   return val
-  //    }
-  //   }
-  // },
   watch: {
     value(val) {
       console.log(val, "vla");
@@ -57,6 +50,12 @@ export default {
   },
 
   methods: {
+
+    createCanvas(){
+      console.log(this.$refs.CanvansCom,'this.$refs.CanvansCom')
+      this.$refs.CanvansCom.createCanvas()
+    },
+   
     setSeeion() {
       this.value = { name: 1, name2: ++this.value.name2 };
       //   this.getStorage("valww", 222);

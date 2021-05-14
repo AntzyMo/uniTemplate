@@ -11,6 +11,11 @@ import CardCom from './components/CardCom/index.vue'
 import SelectCom from './components/SelectCom/index.vue'
 import TabPane from './components/TabsCom/tab-pane.vue'
 
+// #ifdef H5
+import comInJs from './components/comInJs/index.js'
+Vue.use(comInJs)
+// #endif
+
 Vue.component('BtnCom',BtnCom)
 Vue.component('CardCom',CardCom)
 Vue.component('SelectCom',SelectCom)

@@ -2,8 +2,8 @@
   <view class="cardDialog" v-if="visible" @touchmove.stop.prevent>
     <view class="card-box" :style="[style]">
       <view class="card-header">
-        <view class="close" v-if="showClose" @click="closeFn">
-          <image src="../../static/common/close.png" mode=""></image>
+        <view class="close" @click="closeFn">
+          <image  v-if="showClose" src="../../static/common/close.png" mode=""></image>
         </view>
         <view class="title f30" v-if="title || $slots.title">
           <slot name="title">{{ title }}</slot>
@@ -42,7 +42,7 @@ export default {
     showClose: {
       /*  是否显示关闭按钮 */
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
 

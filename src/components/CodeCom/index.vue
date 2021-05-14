@@ -1,7 +1,6 @@
 <template>
-  <view class="box tcenter f30"
-        @click="sendFn">
-    <text :class="colorClass">{{canSend ? '获取验证码' : time + 's'}}</text>
+  <view class="box tcenter f30" @click="sendFn">
+    <text :class="colorClass">{{ canSend ? "获取验证码" : time + "s" }}</text>
   </view>
 </template>
 <script>
@@ -9,30 +8,30 @@ export default {
   props: {
     limitTime: {
       type: Number,
-      default: 60
-    }
+      default: 60,
+    },
   },
   data() {
     return {
       canSend: true,
-      time: 60
-    }
+      time: 60,
+    };
   },
   created() {
     this.time = this.limitTime;
   },
   computed: {
     colorClass() {
-      return this.canSend ? 'c1890FF' : 'c999'
-    }
+      return this.canSend ? "c1890FF" : "c999";
+    },
   },
   methods: {
     sendFn() {
       if (!this.canSend) {
-        return false
+        return false;
       }
       this.canSend = false;
-	  this.$emit('change')
+      this.$emit("change");
       let timer = setInterval(() => {
         if (this.time > 1 || this.time == this.limitTime) {
           this.time--;
@@ -42,9 +41,9 @@ export default {
           clearInterval(timer);
         }
       }, 1000);
-    }
+    },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 .box {

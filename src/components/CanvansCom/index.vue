@@ -75,9 +75,8 @@ export default {
     async createCanvas() {
       uni.showLoading();
       let ctx = uni.createCanvasContext("my-canvas", this);
-      // 图片地址
       
-
+      // 图片地址
       let imgPath = await this.handleImg(this.imgList);
       //设置背景图
       ctx.drawImage(imgPath[0], 0, 0, this.rpx2px(624), this.rpx2px(720));

@@ -19,6 +19,7 @@
       <CanvansCom ref="CanvansCom"></CanvansCom>
 
 
+
   </view>
 </template>
 
@@ -37,6 +38,7 @@ export default {
   data() {
     return {
       value: this.getStorage("valww"),
+   
     };
   },
 

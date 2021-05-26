@@ -4,12 +4,13 @@
       <SearchCom v-model="searchVAlue"></SearchCom>
       <SearchCom haveSelect></SearchCom>
 
-      <SelectCom v-model="value" :list="list"></SelectCom>
+      <SelectCom v-model="value" :list="list" @change="selectChange"></SelectCom>
       <SelectCom
         mode="date"
         type="month"
         arrowType="right"
         v-model="dateValue"
+        @change="selectChange"
       ></SelectCom>
 
       <view class="mb20">
@@ -102,6 +103,10 @@ export default {
   },  
  
   methods: {
+    selectChange(data){
+      console.log(data,'data')
+    },
+
    beforeUpload(files){
      console.log(files,'files')
      return false

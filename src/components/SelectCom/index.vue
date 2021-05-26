@@ -153,14 +153,20 @@ export default {
 
     change(e) {
       this.open = false;
-      this.$emit("input", this.list[e.detail.value][this.props.value]);
       if (this.mode == "selector") {
+        this.$emit("input", this.list[e.detail.value][this.props.value]);
+
         for (let item of this.list) {
           if (item[this.props.value] == this.list[e.detail.value][this.props.value]) {
             this.$emit("change", item);
             return;
           }
         }
+      }else{
+        this.$emit("input", e.detail.value);
+        this.$emit("change", e.detail.value);
+
+
       }
     },
 

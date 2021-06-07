@@ -4,7 +4,11 @@
       <SearchCom v-model="searchVAlue"></SearchCom>
       <SearchCom haveSelect></SearchCom>
 
-      <SelectCom v-model="value" :list="list" @change="selectChange"></SelectCom>
+      <SelectCom
+        v-model="value"
+        :list="list"
+        @change="selectChange"
+      ></SelectCom>
       <SelectCom
         mode="date"
         type="month"
@@ -41,22 +45,24 @@
       <SelectDialogCom :visible.sync="selectvisible"></SelectDialogCom>
 
       <view class="mb20 c1890ff">上传</view>
-      <UploadCom :limit="3" v-model="uploadList" action="https://api.fucai.kcshop.vip/api/common/upload"></UploadCom>
-      
-
-
+      <UploadCom
+        :limit="3"
+        v-model="uploadList"
+        action="https://api.fucai.kcshop.vip/api/common/upload"
+      ></UploadCom>
     </view>
   </view>
 </template>
 
 <script>
 import TabsCom from "@/components/TabsCom";
-import UploadCom from '@/components/UploadCom'
+import UploadCom from "@/components/UploadCom";
 import codeCom from "../../components/CodeCom/index.vue";
 import DialogCom from "../../components/DialogCom/index.vue";
 import SwiperCom from "@/components/SwiperCom";
 import SearchCom from "@/components/SearchCom";
 import SelectDialogCom from "@/components/SelectDialogCom";
+import { captcha } from "@/api/index";
 export default {
   components: {
     TabsCom,
@@ -65,7 +71,7 @@ export default {
     DialogCom,
     SearchCom,
     SelectDialogCom,
-    UploadCom
+    UploadCom,
   },
   data() {
     return {
@@ -74,7 +80,7 @@ export default {
         { name: "标题二", id: "second" },
         { name: "标题三", id: "seconds" },
       ],
-      uploadList:'',
+      uploadList: "",
       activeName: "second",
       selectvisible: false,
       searchVAlue: "",
@@ -100,17 +106,20 @@ export default {
 
   onLoad() {
     this.setStorage("valww", { name: 1, name2: 0 });
-  },  
- 
+   
+  },
+
   methods: {
-    selectChange(data){
-      console.log(data,'data')
+   
+   
+    selectChange(data) {
+      console.log(data, "data");
     },
 
-   beforeUpload(files){
-     console.log(files,'files')
-     return false
-   },
+    beforeUpload(files) {
+      console.log(files, "files");
+      return false;
+    },
     bindPickerChange(data) {
       console.log(data, "22");
     },
@@ -128,17 +137,13 @@ export default {
     },
     blurFn(e) {
       console.log(this.searchVAlue, "sea");
-     
     },
 
     resetFn() {
       console.log(this.searchVAlue, "sea");
     },
 
-
-    uploadFn(){
-    
-    }
+    uploadFn() {},
   },
 };
 </script>

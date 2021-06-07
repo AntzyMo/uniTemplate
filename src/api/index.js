@@ -9,4 +9,3 @@ export const register = data => request({
 
 }).then(res => res.data.data)
 
-

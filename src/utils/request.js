@@ -1,9 +1,9 @@
-import { baserul } from './url.js'
+import { baseUrl } from './url.js'
 /**	
  * 全局默认配置
  * */
 const baseDefault = {
-	url: baserul,
+	url: baseUrl,
 	header: {
 		// 'content-type':'application/json',
 		'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -37,7 +37,12 @@ function request(Object) {
 			},
 			success(res) {
 				uni.hideLoading()
-
+				
+				//二进制
+				if(typeof res.data==='string'){
+					resolve(res.data)
+					retrun
+				}
 
 				// console.log(res)
 				let {

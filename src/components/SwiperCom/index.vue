@@ -1,7 +1,7 @@
 <template>
   <swiper
     class="swiper"
-    :indicator-dots="true"
+    :indicator-dots="!noDots"
     :current="0"
     autoplay
     :interval="interval"
@@ -33,6 +33,11 @@ export default {
       type: String,
       default: 'image',
     },
+    
+    noDots:{
+      type:Boolean,
+      default:false
+    }
   },
   computed: {
     swiperList() {

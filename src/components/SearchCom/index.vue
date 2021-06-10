@@ -8,7 +8,7 @@
       </view>
       <view class="search-input">
         <view class="icon-box">
-          <image src="../../static/common/icon-search.png" />
+          <image :src="searchIcon" />
         </view>
         <view class="input-box pr" @click="inputClickFn">
           <input
@@ -84,6 +84,10 @@ export default {
       type: String,
       default: "下拉框",
     },
+    searchIcon:{
+      type: String,
+      default: "../../static/common/icon-search.png",
+    }
   },
   methods: {
     /* 更新搜索框透明度（供首页用） */

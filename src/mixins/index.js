@@ -160,7 +160,7 @@ export default {
 		},
 
 		// 打开地图-用于搜索地址，选择位置
-		searchLocation(longitude, latitude, callback) {
+		searchLocation(callback,longitude, latitude ) {
 			uni.chooseLocation({
 				longitude: Number(longitude), // 经度
 				latitude: Number(latitude), // 纬度
@@ -314,10 +314,10 @@ export default {
 
 
 		// 微信解密
-		wxDecode(appId, sessionKey, encryptedData, iv) {
+		wxDecode(callback,appId, sessionKey, encryptedData, iv) {
 			let pc = new WXDecode(appId, sessionKey)
 			let val = pc.decryptData(encryptedData, iv)
-			return val
+			callback(val)
 		}
 
 	}

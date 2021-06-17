@@ -90,7 +90,7 @@ function request(Object) {
 
 
 				uni.showToast({
-					title: '网络出现问题...',
+					title: '请求超时',
 					icon: 'none'
 				})
 

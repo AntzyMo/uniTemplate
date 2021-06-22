@@ -11,9 +11,9 @@ export default {
 		// #endif 
 	},
 
+	
 	methods: {
 
-	
 		//跳转路由
 		toRouter(data, type) {
 			let routerType = {

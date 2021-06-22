@@ -2,12 +2,26 @@
 export default {
   onLaunch: function () {
     console.log("App Launch");
+    this.getIphone();
   },
   onShow: function () {
     console.log("App Show");
   },
   onHide: function () {
     console.log("App Hide");
+  },
+   methods: {
+    getIphone() {
+      let iphone = wx.getSystemInfoSync().model;
+      let iphoneList=['iPhone X','iPhone 11','iPhone 12']
+      let isPhone =iphoneList.some(item=>iphone.includes(item))
+      if (isPhone) {
+        this.setStorage("iphone", true);
+        console.log(211);
+      } else {
+        this.setStorage("iphone", false);
+      }
+    },
   },
 };
 </script>

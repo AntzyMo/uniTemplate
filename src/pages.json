@@ -24,6 +24,12 @@
 					"style": {
 						"navigationBarTitleText": "demo-package"
 					}
+				},
+				{
+					"path": "pages/contentByIphone",
+					"style": {
+						"navigationBarTitleText": "适配iphonex以上"
+					}
 				}
 			]
 		}  

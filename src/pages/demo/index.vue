@@ -5,6 +5,12 @@
       @click="toRouter({ url: '/pages/demo-package/pages/index',params:{name:1,name2:2} }) "
       >进入分包</btnCom
     >
+
+     <btnCom
+      class="mb20"
+      @click="toRouter({ url: '/pages/demo-package/pages/contentByIphone' }) "
+      >进入适配iphoneX页面</btnCom
+    >
     <view class="mb20">
       <view>{{ value.name2 }}</view>
       <btnCom @click="setSeeion">设置缓存</btnCom>
@@ -18,7 +24,9 @@
           <view class="mb20 c1890ff" @click="createCanvas">生成海报</view>
       <CanvansCom ref="CanvansCom"></CanvansCom>
 
+  <view>{{valuess}}</view>
 
+  <view @click="add">甲乙</view>
 
   </view>
 </template>
@@ -38,6 +46,7 @@ export default {
   data() {
     return {
       value: this.getStorage("valww"),
+      
    
     };
   },
@@ -51,7 +60,9 @@ export default {
     },
   },
 
+  
   methods: {
+   
 
     createCanvas(){
       console.log(this.$refs.CanvansCom,'this.$refs.CanvansCom')

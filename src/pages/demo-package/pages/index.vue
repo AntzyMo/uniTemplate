@@ -14,7 +14,6 @@ export default {
     };
   },
   onLoad() {
-    console.log(location.href, "href");
     this.getDeviceWidth();
   },
 

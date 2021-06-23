@@ -2,59 +2,24 @@
   <view class="zSelect">
     <!-- 普通选择器 -->
     <view v-if="mode === 'selector'">
-      <picker
-        :value="index"
-        :range="list"
-        :disabled="disabled"
-        :range-key="props.label"
-        :props="props"
-        @change="change"
-        @cancel="cancel"
-      >
+      <picker :value="index" :range="list" :disabled="disabled" :range-key="props.label" :props="props" @change="change" @cancel="cancel">
         <view class="select_box" @click="handlerOpen">
           <view class="label f30">{{ label }}</view>
-          <image
-            class="icon down"
-            v-if="arrowType == 'down'"
-            :class="{ active: open }"
-            src="../../static/common/arrow.png"
-          ></image>
+          <image class="icon down" v-if="!noIcon && arrowType == 'down'" :class="{ active: open }" src="../../static/common/arrow.png"></image>
 
-          <image
-            class="icon"
-            v-if="arrowType == 'right'"
-            :class="{ active: open }"
-            src="../../static/common/arrow.png"
-          ></image>
+          <image class="icon" v-if="!noIcon && arrowType == 'right'" :class="{ active: open }" src="../../static/common/arrow.png"></image>
         </view>
       </picker>
     </view>
 
     <!-- 日期选择器 -->
     <view v-if="mode === 'date'">
-      <picker
-        mode="date"
-        :value="dateValue"
-        :fields="type"
-        :disabled="disabled"
-        @change="change"
-        @cancel="cancel"
-      >
+      <picker mode="date" :value="dateValue" :fields="type" :disabled="disabled" @change="change" @cancel="cancel">
         <view class="select_box" @click="handlerOpen">
           <view class="label f30">{{ date }}</view>
-          <image
-            class="icon down"
-            v-if="arrowType == 'down'"
-            :class="{ active: open }"
-            src="../../static/common/arrow.png"
-          ></image>
+          <image class="icon down" v-if="!noIcon && arrowType == 'down'" :class="{ active: open }" src="../../static/common/arrow.png"></image>
 
-          <image
-            class="icon "
-            v-if="arrowType == 'right'"
-            :class="{ active: open }"
-            src="../../static/common/arrow.png"
-          ></image>
+          <image class="icon " v-if="!noIcon && arrowType == 'right'" :class="{ active: open }" src="../../static/common/arrow.png"></image>
         </view>
       </picker>
     </view>
@@ -84,6 +49,12 @@ export default {
       type: String,
       default: "请选择日期",
     },
+
+    noIcon: {
+      type: Boolean,
+      default: false
+    },
+
 
     list: {
       type: Array,
@@ -162,7 +133,7 @@ export default {
             return;
           }
         }
-      }else{
+      } else {
         this.$emit("input", e.detail.value);
         this.$emit("change", e.detail.value);
 
